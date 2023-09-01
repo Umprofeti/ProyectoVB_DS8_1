@@ -1,4 +1,4 @@
-﻿Public Class CalculoHoario
+﻿Public Class CalculoSalario
     Private Const SeguroEducativo As Double = 1.25
     Private Const SeguroSocial As Double = 9.75
 
@@ -30,12 +30,29 @@
     End Function
 
     Public Function calcularIR() As Double
-        Dim IR1 = 11000
-        Dim IR12 = 50000
+        Dim IR1_1 = 11000
+        Dim IR1_2 = 50000
+        Dim salarioAnual = calcularSalarioBruto() * 12
         Dim resultado As Double
+        Dim exedente As Double
 
+        If salarioAnual > IR1_1 And salarioAnual < IR1_2 Then
+            exedente = salarioAnual - IR1_1
+            Return resultado = (exedente * 0.15) / 12
+        End If
+        If salarioAnual > IR1_2 Then
+            exedente = salarioAnual - IR1_2
+            Return resultado = (exedente * 0.25) / 12
+        End If
+    End Function
 
+    Public Function CalcularDeducciones(Deduccion As Double) As Double
+        Dim resultado As Double
+        Return resultado = calcularSalarioBruto() - Deduccion
+    End Function
 
-
+    Public Function calcularHorasExtras(cantHoras As Integer) As Double
+        Dim resultado As Double
+        Return resultado = cantHoras * ((salarioHora * 0.25) + salarioHora)
     End Function
 End Class
