@@ -30,12 +30,12 @@ Partial Class CalculoPlanilla
         Label12 = New Label()
         Label13 = New Label()
         Label14 = New Label()
-        TextBox8 = New TextBox()
-        TextBox9 = New TextBox()
-        TextBox10 = New TextBox()
-        TextBox11 = New TextBox()
-        TextBox12 = New TextBox()
-        TextBox13 = New TextBox()
+        I_HT = New TextBox()
+        I_D1 = New TextBox()
+        I_SXH = New TextBox()
+        I_HE = New TextBox()
+        I_D3 = New TextBox()
+        I_D2 = New TextBox()
         Label18 = New Label()
         Panel = New Panel()
         TextBox7 = New TextBox()
@@ -142,47 +142,47 @@ Partial Class CalculoPlanilla
         Label14.TabIndex = 24
         Label14.Text = "Descuento 1"
         ' 
-        ' TextBox8
+        ' I_HT
         ' 
-        TextBox8.Location = New Point(174, 324)
-        TextBox8.Name = "TextBox8"
-        TextBox8.Size = New Size(100, 23)
-        TextBox8.TabIndex = 25
+        I_HT.Location = New Point(174, 324)
+        I_HT.Name = "I_HT"
+        I_HT.Size = New Size(100, 23)
+        I_HT.TabIndex = 25
         ' 
-        ' TextBox9
+        ' I_D1
         ' 
-        TextBox9.Location = New Point(382, 324)
-        TextBox9.Name = "TextBox9"
-        TextBox9.Size = New Size(100, 23)
-        TextBox9.TabIndex = 26
+        I_D1.Location = New Point(382, 324)
+        I_D1.Name = "I_D1"
+        I_D1.Size = New Size(100, 23)
+        I_D1.TabIndex = 26
         ' 
-        ' TextBox10
+        ' I_SXH
         ' 
-        TextBox10.Location = New Point(174, 353)
-        TextBox10.Name = "TextBox10"
-        TextBox10.Size = New Size(100, 23)
-        TextBox10.TabIndex = 27
+        I_SXH.Location = New Point(174, 353)
+        I_SXH.Name = "I_SXH"
+        I_SXH.Size = New Size(100, 23)
+        I_SXH.TabIndex = 27
         ' 
-        ' TextBox11
+        ' I_HE
         ' 
-        TextBox11.Location = New Point(174, 382)
-        TextBox11.Name = "TextBox11"
-        TextBox11.Size = New Size(100, 23)
-        TextBox11.TabIndex = 28
+        I_HE.Location = New Point(174, 382)
+        I_HE.Name = "I_HE"
+        I_HE.Size = New Size(100, 23)
+        I_HE.TabIndex = 28
         ' 
-        ' TextBox12
+        ' I_D3
         ' 
-        TextBox12.Location = New Point(382, 382)
-        TextBox12.Name = "TextBox12"
-        TextBox12.Size = New Size(100, 23)
-        TextBox12.TabIndex = 29
+        I_D3.Location = New Point(382, 382)
+        I_D3.Name = "I_D3"
+        I_D3.Size = New Size(100, 23)
+        I_D3.TabIndex = 29
         ' 
-        ' TextBox13
+        ' I_D2
         ' 
-        TextBox13.Location = New Point(382, 353)
-        TextBox13.Name = "TextBox13"
-        TextBox13.Size = New Size(100, 23)
-        TextBox13.TabIndex = 30
+        I_D2.Location = New Point(382, 353)
+        I_D2.Name = "I_D2"
+        I_D2.Size = New Size(100, 23)
+        I_D2.TabIndex = 30
         ' 
         ' Label18
         ' 
@@ -491,12 +491,12 @@ Partial Class CalculoPlanilla
         Controls.Add(Panel1)
         Controls.Add(Panel)
         Controls.Add(Label18)
-        Controls.Add(TextBox13)
-        Controls.Add(TextBox12)
-        Controls.Add(TextBox11)
-        Controls.Add(TextBox10)
-        Controls.Add(TextBox9)
-        Controls.Add(TextBox8)
+        Controls.Add(I_D2)
+        Controls.Add(I_D3)
+        Controls.Add(I_HE)
+        Controls.Add(I_SXH)
+        Controls.Add(I_D1)
+        Controls.Add(I_HT)
         Controls.Add(Label14)
         Controls.Add(Label13)
         Controls.Add(Label12)
@@ -533,12 +533,12 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents I_HT As TextBox
+    Friend WithEvents I_D1 As TextBox
+    Friend WithEvents I_SXH As TextBox
+    Friend WithEvents I_HE As TextBox
+    Friend WithEvents I_D3 As TextBox
+    Friend WithEvents I_D2 As TextBox
 
     Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs)
 
