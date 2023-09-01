@@ -56,6 +56,8 @@ Partial Class CalculoPlanilla
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
+        I_SN = New TextBox()
+        Label20 = New Label()
         Button1 = New Button()
         I_ISR = New TextBox()
         Label19 = New Label()
@@ -65,8 +67,6 @@ Partial Class CalculoPlanilla
         Label15 = New Label()
         I_SB = New TextBox()
         Label17 = New Label()
-        Label20 = New Label()
-        I_SN = New TextBox()
         Panel.SuspendLayout()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -389,9 +389,26 @@ Partial Class CalculoPlanilla
         Panel1.Size = New Size(459, 146)
         Panel1.TabIndex = 46
         ' 
+        ' I_SN
+        ' 
+        I_SN.Enabled = False
+        I_SN.Location = New Point(163, 13)
+        I_SN.Name = "I_SN"
+        I_SN.Size = New Size(53, 23)
+        I_SN.TabIndex = 55
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Location = New Point(134, 18)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(25, 15)
+        Label20.TabIndex = 54
+        Label20.Text = "S.N"
+        ' 
         ' Button1
         ' 
-        Button1.Location = New Point(332, 92)
+        Button1.Location = New Point(308, 52)
         Button1.Name = "Button1"
         Button1.Size = New Size(118, 47)
         Button1.TabIndex = 53
@@ -400,6 +417,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_ISR
         ' 
+        I_ISR.Enabled = False
         I_ISR.Location = New Point(44, 76)
         I_ISR.Name = "I_ISR"
         I_ISR.Size = New Size(51, 23)
@@ -416,6 +434,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_SE
         ' 
+        I_SE.Enabled = False
         I_SE.Location = New Point(44, 105)
         I_SE.Name = "I_SE"
         I_SE.Size = New Size(51, 23)
@@ -432,6 +451,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_SS
         ' 
+        I_SS.Enabled = False
         I_SS.Location = New Point(44, 42)
         I_SS.Name = "I_SS"
         I_SS.Size = New Size(51, 23)
@@ -448,6 +468,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_SB
         ' 
+        I_SB.Enabled = False
         I_SB.Location = New Point(44, 13)
         I_SB.Name = "I_SB"
         I_SB.Size = New Size(51, 23)
@@ -462,25 +483,9 @@ Partial Class CalculoPlanilla
         Label17.TabIndex = 45
         Label17.Text = "S.B"
         ' 
-        ' Label20
-        ' 
-        Label20.AutoSize = True
-        Label20.Location = New Point(134, 18)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(25, 15)
-        Label20.TabIndex = 54
-        Label20.Text = "S.N"
-        ' 
-        ' I_SN
-        ' 
-        I_SN.Location = New Point(163, 13)
-        I_SN.Name = "I_SN"
-        I_SN.Size = New Size(53, 23)
-        I_SN.TabIndex = 55
-        ' 
         ' CalculoPlanilla
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(554, 578)
         Controls.Add(Panel1)
