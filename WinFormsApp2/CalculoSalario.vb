@@ -5,6 +5,24 @@
     Private horasTrabajadas As Integer
     Private salarioHora As Double
 
+    Public Property _horasTrabajadas() As Integer
+        Get
+            Return horasTrabajadas
+        End Get
+        Set(value As Integer)
+            horasTrabajadas = value
+        End Set
+    End Property
+
+    Public Property _salarioHora() As Double
+        Get
+            Return salarioHora
+        End Get
+        Set(value As Double)
+            salarioHora = value
+        End Set
+    End Property
+
     Public Sub New(sH As Double, hT As Integer)
         Me.salarioHora = sH
         Me.horasTrabajadas = hT
@@ -44,6 +62,7 @@
             exedente = salarioAnual - IR1_2
             Return resultado = (exedente * 0.25) / 12
         End If
+        Return 0
     End Function
 
     Public Function CalcularDeducciones(Deduccion As Double) As Double
