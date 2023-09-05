@@ -533,22 +533,13 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
-    Friend WithEvents I_HT As TextBox
     Friend WithEvents I_D1 As TextBox
     Friend WithEvents I_SXH As TextBox
     Friend WithEvents I_HE As TextBox
     Friend WithEvents I_D3 As TextBox
     Friend WithEvents I_D2 As TextBox
 
-    Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Friend WithEvents Label18 As Label
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Friend WithEvents Panel As Panel
     Friend WithEvents TextBox6 As TextBox
@@ -580,4 +571,5 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label17 As Label
     Friend WithEvents I_SN As TextBox
     Friend WithEvents Label20 As Label
+    Friend Protected WithEvents I_HT As TextBox
 End Class

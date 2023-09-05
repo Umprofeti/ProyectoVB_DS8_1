@@ -1,11 +1,21 @@
 ﻿Public Class CalculoSalario
     Private Const SeguroEducativo As Double = 1.25
     Private Const SeguroSocial As Double = 9.75
+    Private horasExtras As Double
 
     Private horasTrabajadas As Integer
     Private salarioHora As Double
 
-    Public Property _horasTrabajadas() As Integer
+    Public Property PropHorasExtras() As Double
+        Get
+            Return horasExtras
+        End Get
+        Set(value As Double)
+            horasExtras = value
+        End Set
+    End Property
+
+    Public Property PropHorasTrabajadas() As Integer
         Get
             Return horasTrabajadas
         End Get
@@ -14,7 +24,7 @@
         End Set
     End Property
 
-    Public Property _salarioHora() As Double
+    Public Property PropSalarioHora() As Double
         Get
             Return salarioHora
         End Get
@@ -23,9 +33,10 @@
         End Set
     End Property
 
-    Public Sub New(sH As Double, hT As Integer)
-        Me.salarioHora = sH
-        Me.horasTrabajadas = hT
+    Public Sub New()
+        Me.salarioHora = 0
+        Me.horasTrabajadas = 0
+        Me.horasExtras = 0
     End Sub
 
     Public Function calcularSalarioBruto() As Double
@@ -55,11 +66,11 @@
         Dim exedente As Double
 
         If salarioAnual > IR1_1 And salarioAnual < IR1_2 Then
-            exedente = salarioAnual - IR1_1
+            exedente = (salarioAnual + horasExtras) - IR1_1
             Return resultado = (exedente * 0.15) / 12
         End If
         If salarioAnual > IR1_2 Then
-            exedente = salarioAnual - IR1_2
+            exedente = (salarioAnual + horasExtras) - IR1_2
             Return resultado = (exedente * 0.25) / 12
         End If
         Return 0
@@ -72,6 +83,8 @@
 
     Public Function calcularHorasExtras(cantHoras As Integer) As Double
         Dim resultado As Double
-        Return resultado = cantHoras * ((salarioHora * 0.25) + salarioHora)
+        resultado = cantHoras * ((salarioHora * 0.25) + salarioHora)
+        PropHorasExtras = resultado
+        Return resultado
     End Function
 End Class
