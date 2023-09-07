@@ -1,6 +1,6 @@
 ﻿Public Class CalculoSalario
-    Private Const SeguroEducativo As Double = 1.25
-    Private Const SeguroSocial As Double = 9.75
+    Private Const SeguroEducativo As Double = 0.0125
+    Private Const SeguroSocial As Double = 0.0975
     Private horasExtras As Double
 
     Private horasTrabajadas As Integer
@@ -39,41 +39,40 @@
         Me.horasExtras = 0
     End Sub
 
-    Public Function calcularSalarioBruto() As Double
+    Public Function CalcularSalarioBruto() As Double
         Dim resultado As Double
-
-        resultado = horasTrabajadas * salarioHora
-        Return resultado
+        resultado = (horasTrabajadas * salarioHora) + horasExtras
+        Return Math.Round(resultado, 2)
     End Function
 
-    Public Function calcularSE() As Double
+    Public Function CalcularSE() As Double
         Dim resultado As Double
-        resultado = calcularSalarioBruto() * SeguroEducativo
-        Return resultado
+        resultado = CalcularSalarioBruto() * SeguroEducativo
+        Return Math.Round(resultado)
     End Function
 
-    Public Function calcularSS() As Double
+    Public Function CalcularSS() As Double
         Dim resultado As Double
-        resultado = calcularSalarioBruto() * SeguroSocial
-        Return resultado
+        resultado = CalcularSalarioBruto() * SeguroSocial
+        Return Math.Round(resultado)
     End Function
 
-    Public Function calcularIR() As Double
+    Public Function CalcularIR() As Double
         Dim IR1_1 = 11000
         Dim IR1_2 = 50000
-        Dim salarioAnual = calcularSalarioBruto() * 12
+        Dim salarioAnual = (CalcularSalarioBruto() * 12) + horasExtras
         Dim resultado As Double
         Dim exedente As Double
 
-        If salarioAnual > IR1_1 And salarioAnual < IR1_2 Then
-            exedente = (salarioAnual + horasExtras) - IR1_1
-            Return resultado = (exedente * 0.15) / 12
+        If salarioAnual >= IR1_1 And salarioAnual < IR1_2 Then
+            exedente = salarioAnual - IR1_1
+            resultado = (exedente * 0.15) / 12
         End If
-        If salarioAnual > IR1_2 Then
-            exedente = (salarioAnual + horasExtras) - IR1_2
-            Return resultado = (exedente * 0.25) / 12
+        If salarioAnual >= IR1_2 Then
+            exedente = salarioAnual - IR1_2
+            resultado = (exedente * 0.25) / 12
         End If
-        Return 0
+        Return Math.Round(resultado, 2)
     End Function
 
     Public Function CalcularDeducciones(Deduccion As Double) As Double
@@ -81,9 +80,9 @@
         Return resultado = calcularSalarioBruto() - Deduccion
     End Function
 
-    Public Function calcularHorasExtras(cantHoras As Integer) As Double
+    Public Function CalcularHorasExtras(cantHoras As Integer) As Double
         Dim resultado As Double
-        resultado = cantHoras * ((salarioHora * 0.25) + salarioHora)
+        resultado = Math.Round(cantHoras * ((salarioHora * 0.25) + salarioHora), 2)
         PropHorasExtras = resultado
         Return resultado
     End Function

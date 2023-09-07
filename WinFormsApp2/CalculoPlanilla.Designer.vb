@@ -56,9 +56,16 @@ Partial Class CalculoPlanilla
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
-        I_SN = New TextBox()
+        Label24 = New Label()
+        O_D3 = New TextBox()
+        O_D2 = New TextBox()
+        Label23 = New Label()
+        Label22 = New Label()
+        O_D1 = New TextBox()
+        O_HE = New TextBox()
+        Label21 = New Label()
+        O_SN = New TextBox()
         Label20 = New Label()
-        Button1 = New Button()
         I_ISR = New TextBox()
         Label19 = New Label()
         I_SE = New TextBox()
@@ -373,9 +380,16 @@ Partial Class CalculoPlanilla
         ' 
         Panel1.BackColor = SystemColors.ActiveCaption
         Panel1.BorderStyle = BorderStyle.Fixed3D
-        Panel1.Controls.Add(I_SN)
+        Panel1.Controls.Add(Label24)
+        Panel1.Controls.Add(O_D3)
+        Panel1.Controls.Add(O_D2)
+        Panel1.Controls.Add(Label23)
+        Panel1.Controls.Add(Label22)
+        Panel1.Controls.Add(O_D1)
+        Panel1.Controls.Add(O_HE)
+        Panel1.Controls.Add(Label21)
+        Panel1.Controls.Add(O_SN)
         Panel1.Controls.Add(Label20)
-        Panel1.Controls.Add(Button1)
         Panel1.Controls.Add(I_ISR)
         Panel1.Controls.Add(Label19)
         Panel1.Controls.Add(I_SE)
@@ -389,31 +403,90 @@ Partial Class CalculoPlanilla
         Panel1.Size = New Size(459, 146)
         Panel1.TabIndex = 46
         ' 
-        ' I_SN
+        ' Label24
         ' 
-        I_SN.Enabled = False
-        I_SN.Location = New Point(163, 13)
-        I_SN.Name = "I_SN"
-        I_SN.Size = New Size(53, 23)
-        I_SN.TabIndex = 55
+        Label24.AutoSize = True
+        Label24.Location = New Point(134, 108)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(21, 15)
+        Label24.TabIndex = 63
+        Label24.Text = "D3"
+        ' 
+        ' O_D3
+        ' 
+        O_D3.Enabled = False
+        O_D3.Location = New Point(160, 105)
+        O_D3.Name = "O_D3"
+        O_D3.Size = New Size(57, 23)
+        O_D3.TabIndex = 62
+        ' 
+        ' O_D2
+        ' 
+        O_D2.Enabled = False
+        O_D2.Location = New Point(160, 76)
+        O_D2.Name = "O_D2"
+        O_D2.Size = New Size(57, 23)
+        O_D2.TabIndex = 61
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Location = New Point(134, 79)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(21, 15)
+        Label23.TabIndex = 60
+        Label23.Text = "D2"
+        ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Location = New Point(134, 45)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(21, 15)
+        Label22.TabIndex = 59
+        Label22.Text = "D1"
+        ' 
+        ' O_D1
+        ' 
+        O_D1.Enabled = False
+        O_D1.Location = New Point(160, 42)
+        O_D1.Name = "O_D1"
+        O_D1.Size = New Size(57, 23)
+        O_D1.TabIndex = 58
+        ' 
+        ' O_HE
+        ' 
+        O_HE.Enabled = False
+        O_HE.Location = New Point(160, 13)
+        O_HE.Name = "O_HE"
+        O_HE.Size = New Size(57, 23)
+        O_HE.TabIndex = 57
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Location = New Point(134, 16)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(25, 15)
+        Label21.TabIndex = 56
+        Label21.Text = "H.E"
+        ' 
+        ' O_SN
+        ' 
+        O_SN.Enabled = False
+        O_SN.Location = New Point(264, 13)
+        O_SN.Name = "O_SN"
+        O_SN.Size = New Size(57, 23)
+        O_SN.TabIndex = 55
         ' 
         ' Label20
         ' 
         Label20.AutoSize = True
-        Label20.Location = New Point(134, 18)
+        Label20.Location = New Point(238, 16)
         Label20.Name = "Label20"
         Label20.Size = New Size(25, 15)
         Label20.TabIndex = 54
         Label20.Text = "S.N"
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(308, 52)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(118, 47)
-        Button1.TabIndex = 53
-        Button1.Text = "Calcular"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' I_ISR
         ' 
@@ -569,7 +642,15 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label15 As Label
     Friend WithEvents I_SB As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents I_SN As TextBox
+    Friend WithEvents O_SN As TextBox
     Friend WithEvents Label20 As Label
     Friend Protected WithEvents I_HT As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents O_D1 As TextBox
+    Friend WithEvents O_HE As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents O_D3 As TextBox
+    Friend WithEvents O_D2 As TextBox
+    Friend WithEvents Label23 As Label
 End Class
