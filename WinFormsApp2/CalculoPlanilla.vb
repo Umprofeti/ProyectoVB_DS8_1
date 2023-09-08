@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
+﻿Imports System.Reflection.Metadata
+Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Class CalculoPlanilla
@@ -138,10 +139,47 @@ Class CalculoPlanilla
     End Sub
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_TOMO.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Sub
+
+    Private Sub I_TOMO_TextChanged(sender As Object, e As EventArgs) Handles I_TOMO.TextChanged
 
     End Sub
 
-    Private Sub Panel_Paint(sender As Object, e As PaintEventArgs) Handles Panel.Paint
+    Private Sub I_ASIENTO_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_ASIENTO.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Sub
 
+    Private Sub I_NOMBRE_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_NOMBRE.KeyPress
+        ' Verificar si la tecla presionada no es un numero
+        ValidarCaracter(sender, e)
+    End Sub
+
+    Private Function ValidarCaracter(sender, e) As Handle
+        If Char.IsNumber(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Function
+
+    Private Sub I_APELLIDO_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_APELLIDO.KeyPress
+        ValidarCaracter(sender, e)
+    End Sub
+
+    Private Sub I_NOMBRE2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_NOMBRE2.KeyPress
+        ValidarCaracter(sender, e)
+    End Sub
+
+    Private Sub I_APELLIDO2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_APELLIDO2.KeyPress
+        ValidarCaracter(sender, e)
+    End Sub
+
+    Private Sub I_APELLIDO_C_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_APELLIDO_C.KeyPress
+        ValidarCaracter(sender, e)
     End Sub
 End Class
