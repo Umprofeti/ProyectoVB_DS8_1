@@ -234,7 +234,7 @@ Partial Class CalculoPlanilla
         ' RB_C_No
         ' 
         RB_C_No.AutoSize = True
-        RB_C_No.Location = New Point(12, 219)
+        RB_C_No.Location = New Point(166, 218)
         RB_C_No.Name = "RB_C_No"
         RB_C_No.Size = New Size(41, 19)
         RB_C_No.TabIndex = 30
@@ -245,7 +245,7 @@ Partial Class CalculoPlanilla
         ' RB_C_Si
         ' 
         RB_C_Si.AutoSize = True
-        RB_C_Si.Location = New Point(12, 194)
+        RB_C_Si.Location = New Point(166, 193)
         RB_C_Si.Name = "RB_C_Si"
         RB_C_Si.Size = New Size(34, 19)
         RB_C_Si.TabIndex = 29
@@ -255,15 +255,16 @@ Partial Class CalculoPlanilla
         ' 
         ' I_APELLIDO_C
         ' 
-        I_APELLIDO_C.Location = New Point(160, 190)
+        I_APELLIDO_C.Enabled = False
+        I_APELLIDO_C.Location = New Point(295, 203)
         I_APELLIDO_C.Name = "I_APELLIDO_C"
-        I_APELLIDO_C.Size = New Size(100, 23)
+        I_APELLIDO_C.Size = New Size(147, 23)
         I_APELLIDO_C.TabIndex = 9
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(160, 172)
+        Label8.Location = New Point(295, 175)
         Label8.Name = "Label8"
         Label8.Size = New Size(90, 15)
         Label8.TabIndex = 7
@@ -272,11 +273,11 @@ Partial Class CalculoPlanilla
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(7, 172)
+        Label4.Location = New Point(160, 175)
         Label4.Name = "Label4"
-        Label4.Size = New Size(69, 15)
+        Label4.Size = New Size(114, 15)
         Label4.TabIndex = 5
-        Label4.Text = "Es casado/a"
+        Label4.Text = "Usa Apellido Casada"
         ' 
         ' I_APELLIDO2
         ' 
@@ -352,6 +353,7 @@ Partial Class CalculoPlanilla
         ' 
         ' ComboBox1
         ' 
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
         ComboBox1.FormattingEnabled = True
         ComboBox1.ItemHeight = 15
         ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "E", "PE"})

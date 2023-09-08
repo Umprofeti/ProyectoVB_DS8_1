@@ -132,11 +132,7 @@ Class CalculoPlanilla
         End If
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        If ComboBox1.Items.Count > 0 Then
-            ComboBox1.SelectedIndex = 0
-        End If
-    End Sub
+
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_TOMO.KeyPress
         ' Verificar si la tecla presionada no es un caracter
@@ -181,5 +177,27 @@ Class CalculoPlanilla
 
     Private Sub I_APELLIDO_C_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_APELLIDO_C.KeyPress
         ValidarCaracter(sender, e)
+    End Sub
+
+    Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
+        If RB_C_No.Checked Then
+            I_APELLIDO_C.Enabled = False
+        End If
+    End Sub
+
+    Private Sub RB_C_Si_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_Si.CheckedChanged
+        If RB_C_Si.Checked Then
+            I_APELLIDO_C.Enabled = True
+        End If
+    End Sub
+
+    Private Sub CalculoPlanilla_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If ComboBox1.Items.Count > 0 Then
+            ComboBox1.SelectedIndex = 7   ' The first item has index 0 '
+        End If
+    End Sub
+
+    Private Sub Label4_Click_1(sender As Object, e As EventArgs) Handles Label4.Click
+
     End Sub
 End Class
