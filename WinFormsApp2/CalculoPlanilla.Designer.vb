@@ -84,7 +84,7 @@ Partial Class CalculoPlanilla
         Label3.Location = New Point(264, 18)
         Label3.Name = "Label3"
         Label3.Size = New Size(47, 15)
-        Label3.TabIndex = 2
+        Label3.TabIndex = 14
         Label3.Text = "Asiento"
         ' 
         ' TextBox2
@@ -93,7 +93,7 @@ Partial Class CalculoPlanilla
         TextBox2.MaxLength = 5
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(72, 23)
-        TextBox2.TabIndex = 5
+        TextBox2.TabIndex = 3
         ' 
         ' Label9
         ' 
@@ -101,7 +101,7 @@ Partial Class CalculoPlanilla
         Label9.Location = New Point(64, 333)
         Label9.Name = "Label9"
         Label9.Size = New Size(96, 15)
-        Label9.TabIndex = 19
+        Label9.TabIndex = 10
         Label9.Text = "Horas trabajados"
         ' 
         ' Label10
@@ -110,7 +110,7 @@ Partial Class CalculoPlanilla
         Label10.Location = New Point(64, 362)
         Label10.Name = "Label10"
         Label10.Size = New Size(80, 15)
-        Label10.TabIndex = 20
+        Label10.TabIndex = 11
         Label10.Text = "Salario x Hora"
         ' 
         ' Label11
@@ -154,42 +154,42 @@ Partial Class CalculoPlanilla
         I_HT.Location = New Point(174, 324)
         I_HT.Name = "I_HT"
         I_HT.Size = New Size(100, 23)
-        I_HT.TabIndex = 25
+        I_HT.TabIndex = 0
         ' 
         ' I_D1
         ' 
         I_D1.Location = New Point(382, 324)
         I_D1.Name = "I_D1"
         I_D1.Size = New Size(100, 23)
-        I_D1.TabIndex = 26
+        I_D1.TabIndex = 3
         ' 
         ' I_SXH
         ' 
         I_SXH.Location = New Point(174, 353)
         I_SXH.Name = "I_SXH"
         I_SXH.Size = New Size(100, 23)
-        I_SXH.TabIndex = 27
+        I_SXH.TabIndex = 1
         ' 
         ' I_HE
         ' 
         I_HE.Location = New Point(174, 382)
         I_HE.Name = "I_HE"
         I_HE.Size = New Size(100, 23)
-        I_HE.TabIndex = 28
+        I_HE.TabIndex = 2
         ' 
         ' I_D3
         ' 
         I_D3.Location = New Point(382, 382)
         I_D3.Name = "I_D3"
         I_D3.Size = New Size(100, 23)
-        I_D3.TabIndex = 29
+        I_D3.TabIndex = 6
         ' 
         ' I_D2
         ' 
         I_D2.Location = New Point(382, 353)
         I_D2.Name = "I_D2"
         I_D2.Size = New Size(100, 23)
-        I_D2.TabIndex = 30
+        I_D2.TabIndex = 5
         ' 
         ' Label18
         ' 
@@ -198,7 +198,7 @@ Partial Class CalculoPlanilla
         Label18.Location = New Point(27, 407)
         Label18.Name = "Label18"
         Label18.Size = New Size(52, 15)
-        Label18.TabIndex = 41
+        Label18.TabIndex = 6
         Label18.Text = "Calculos"
         ' 
         ' Panel
@@ -229,14 +229,14 @@ Partial Class CalculoPlanilla
         Panel.Name = "Panel"
         Panel.RightToLeft = RightToLeft.No
         Panel.Size = New Size(459, 283)
-        Panel.TabIndex = 45
+        Panel.TabIndex = 0
         ' 
         ' TextBox7
         ' 
         TextBox7.Location = New Point(140, 190)
         TextBox7.Name = "TextBox7"
         TextBox7.Size = New Size(100, 23)
-        TextBox7.TabIndex = 30
+        TextBox7.TabIndex = 9
         ' 
         ' Label8
         ' 
@@ -244,7 +244,7 @@ Partial Class CalculoPlanilla
         Label8.Location = New Point(140, 172)
         Label8.Name = "Label8"
         Label8.Size = New Size(90, 15)
-        Label8.TabIndex = 29
+        Label8.TabIndex = 7
         Label8.Text = "Apellido casada"
         ' 
         ' CheckBox2
@@ -263,7 +263,7 @@ Partial Class CalculoPlanilla
         CheckBox1.Location = New Point(10, 202)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(35, 19)
-        CheckBox1.TabIndex = 27
+        CheckBox1.TabIndex = 8
         CheckBox1.Text = "Si"
         CheckBox1.UseVisualStyleBackColor = True
         ' 
@@ -273,7 +273,7 @@ Partial Class CalculoPlanilla
         Label4.Location = New Point(7, 172)
         Label4.Name = "Label4"
         Label4.Size = New Size(69, 15)
-        Label4.TabIndex = 26
+        Label4.TabIndex = 5
         Label4.Text = "Es casado/a"
         ' 
         ' TextBox6
@@ -281,28 +281,28 @@ Partial Class CalculoPlanilla
         TextBox6.Location = New Point(163, 135)
         TextBox6.Name = "TextBox6"
         TextBox6.Size = New Size(100, 23)
-        TextBox6.TabIndex = 25
+        TextBox6.TabIndex = 7
         ' 
         ' TextBox5
         ' 
         TextBox5.Location = New Point(163, 91)
         TextBox5.Name = "TextBox5"
         TextBox5.Size = New Size(100, 23)
-        TextBox5.TabIndex = 24
+        TextBox5.TabIndex = 5
         ' 
         ' TextBox4
         ' 
         TextBox4.Location = New Point(7, 135)
         TextBox4.Name = "TextBox4"
         TextBox4.Size = New Size(100, 23)
-        TextBox4.TabIndex = 23
+        TextBox4.TabIndex = 6
         ' 
         ' TextBox3
         ' 
         TextBox3.Location = New Point(7, 91)
         TextBox3.Name = "TextBox3"
         TextBox3.Size = New Size(100, 23)
-        TextBox3.TabIndex = 22
+        TextBox3.TabIndex = 4
         ' 
         ' Label7
         ' 
@@ -310,7 +310,7 @@ Partial Class CalculoPlanilla
         Label7.Location = New Point(160, 117)
         Label7.Name = "Label7"
         Label7.Size = New Size(60, 15)
-        Label7.TabIndex = 21
+        Label7.TabIndex = 3
         Label7.Text = "Apellido 2"
         ' 
         ' Label6
@@ -319,7 +319,7 @@ Partial Class CalculoPlanilla
         Label6.Location = New Point(163, 73)
         Label6.Name = "Label6"
         Label6.Size = New Size(54, 15)
-        Label6.TabIndex = 20
+        Label6.TabIndex = 1
         Label6.Text = "Apellido "
         ' 
         ' Label5
@@ -328,7 +328,7 @@ Partial Class CalculoPlanilla
         Label5.Location = New Point(7, 117)
         Label5.Name = "Label5"
         Label5.Size = New Size(60, 15)
-        Label5.TabIndex = 19
+        Label5.TabIndex = 18
         Label5.Text = "Nombre 2"
         ' 
         ' Nombre
@@ -337,7 +337,7 @@ Partial Class CalculoPlanilla
         Nombre.Location = New Point(7, 73)
         Nombre.Name = "Nombre"
         Nombre.Size = New Size(51, 15)
-        Nombre.TabIndex = 18
+        Nombre.TabIndex = 16
         Nombre.Text = "Nombre"
         ' 
         ' TextBox1
@@ -346,7 +346,7 @@ Partial Class CalculoPlanilla
         TextBox1.MaxLength = 4
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(74, 23)
-        TextBox1.TabIndex = 17
+        TextBox1.TabIndex = 2
         ' 
         ' ComboBox1
         ' 
@@ -356,7 +356,7 @@ Partial Class CalculoPlanilla
         ComboBox1.Location = New Point(7, 36)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(121, 23)
-        ComboBox1.TabIndex = 16
+        ComboBox1.TabIndex = 1
         ' 
         ' Label2
         ' 
@@ -364,7 +364,7 @@ Partial Class CalculoPlanilla
         Label2.Location = New Point(163, 18)
         Label2.Name = "Label2"
         Label2.Size = New Size(37, 15)
-        Label2.TabIndex = 15
+        Label2.TabIndex = 12
         Label2.Text = "Tomo"
         ' 
         ' Label1
@@ -373,7 +373,7 @@ Partial Class CalculoPlanilla
         Label1.Location = New Point(7, 18)
         Label1.Name = "Label1"
         Label1.Size = New Size(41, 15)
-        Label1.TabIndex = 14
+        Label1.TabIndex = 10
         Label1.Text = "Prefijo"
         ' 
         ' Panel1
@@ -401,7 +401,7 @@ Partial Class CalculoPlanilla
         Panel1.Location = New Point(38, 420)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(459, 146)
-        Panel1.TabIndex = 46
+        Panel1.TabIndex = 7
         ' 
         ' Label24
         ' 
@@ -577,7 +577,6 @@ Partial Class CalculoPlanilla
         Controls.Add(Label10)
         Controls.Add(Label9)
         Name = "CalculoPlanilla"
-        Text = "Form1"
         Panel.ResumeLayout(False)
         Panel.PerformLayout()
         Panel1.ResumeLayout(False)

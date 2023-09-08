@@ -52,4 +52,61 @@ Class CalculoPlanilla
             I_ISR.Text = CalculoSalario.CalcularIR()
         End If
     End Sub
+
+    Private Sub I_D1_TextChanged(sender As Object, e As EventArgs) Handles I_D1.TextChanged
+        If I_D1.Text.Equals("") Then
+            CalculoSalario.PropDeduccion1 = 0
+            O_D1.Text = CalculoSalario.PropDeduccion1
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        Else
+            CalculoSalario.PropDeduccion1 = I_D1.Text
+            O_D1.Text = CalculoSalario.PropDeduccion1
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        End If
+    End Sub
+
+    Private Sub I_D2_TextChanged(sender As Object, e As EventArgs) Handles I_D2.TextChanged
+        If I_D2.Text.Equals("") Then
+            CalculoSalario.PropDeduccion2 = 0
+            O_D2.Text = CalculoSalario.PropDeduccion2
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        Else
+            CalculoSalario.PropDeduccion2 = I_D2.Text
+            O_D2.Text = CalculoSalario.PropDeduccion2
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        End If
+    End Sub
+
+    Private Sub I_D3_TextChanged(sender As Object, e As EventArgs) Handles I_D3.TextChanged
+        If I_D3.Text.Equals("") Then
+            CalculoSalario.PropDeduccion3 = 0
+            O_D3.Text = CalculoSalario.PropDeduccion3
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        Else
+            CalculoSalario.PropDeduccion3 = I_D3.Text
+            O_D3.Text = CalculoSalario.PropDeduccion3
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        End If
+    End Sub
+
+    Private Sub I_D1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D1.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Sub
+
+    Private Sub I_D2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D2.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Sub
+
+    Private Sub I_D3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D3.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+    End Sub
 End Class

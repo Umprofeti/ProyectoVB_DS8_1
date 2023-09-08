@@ -6,6 +6,38 @@
     Private horasTrabajadas As Integer
     Private salarioHora As Double
 
+    ' Deducciones 
+    Private Deduccion1 As Double
+    Private Deduccion2 As Double
+    Private Deduccion3 As Double
+
+    Public Property PropDeduccion1() As Double
+        Get
+            Return Deduccion1
+        End Get
+        Set(value As Double)
+            Deduccion1 = value
+        End Set
+    End Property
+
+    Public Property PropDeduccion2() As Double
+        Get
+            Return Deduccion2
+        End Get
+        Set(value As Double)
+            Deduccion2 = value
+        End Set
+    End Property
+
+    Public Property PropDeduccion3() As Double
+        Get
+            Return Deduccion3
+        End Get
+        Set(value As Double)
+            Deduccion3 = value
+        End Set
+    End Property
+
     Public Property PropHorasExtras() As Double
         Get
             Return horasExtras
@@ -84,6 +116,14 @@
         Dim resultado As Double
         resultado = Math.Round(cantHoras * ((salarioHora * 0.25) + salarioHora), 2)
         PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    Public Function CalcularSalarioNeto() As Double
+        Dim resultado As Double
+        Dim deducciones As Double
+        deducciones = CalcularIR() + CalcularSE() + CalcularSS() + Deduccion1 + Deduccion2 + Deduccion3
+        resultado = Math.Round((CalcularSalarioBruto() - deducciones), 2)
         Return resultado
     End Function
 End Class
