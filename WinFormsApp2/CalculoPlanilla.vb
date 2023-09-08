@@ -1,4 +1,5 @@
 ﻿Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Class CalculoPlanilla
     Dim CalculoSalario As CalculoSalario = New CalculoSalario()
@@ -128,5 +129,19 @@ Class CalculoPlanilla
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If ComboBox1.Items.Count > 0 Then
+            ComboBox1.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_TOMO.KeyPress
+
+    End Sub
+
+    Private Sub Panel_Paint(sender As Object, e As PaintEventArgs) Handles Panel.Paint
+
     End Sub
 End Class

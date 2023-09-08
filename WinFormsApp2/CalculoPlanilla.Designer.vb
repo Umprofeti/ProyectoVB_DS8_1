@@ -23,7 +23,7 @@ Partial Class CalculoPlanilla
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Label3 = New Label()
-        TextBox2 = New TextBox()
+        I_ASIENTO = New TextBox()
         Label9 = New Label()
         Label10 = New Label()
         Label11 = New Label()
@@ -38,20 +38,20 @@ Partial Class CalculoPlanilla
         I_D2 = New TextBox()
         Label18 = New Label()
         Panel = New Panel()
-        TextBox7 = New TextBox()
+        RB_C_No = New RadioButton()
+        RB_C_Si = New RadioButton()
+        I_APELLIDO_C = New TextBox()
         Label8 = New Label()
-        CheckBox2 = New CheckBox()
-        CheckBox1 = New CheckBox()
         Label4 = New Label()
-        TextBox6 = New TextBox()
-        TextBox5 = New TextBox()
-        TextBox4 = New TextBox()
-        TextBox3 = New TextBox()
+        I_APELLIDO2 = New TextBox()
+        I_APELLIDO = New TextBox()
+        I_NOMBRE2 = New TextBox()
+        I_NOMBRE = New TextBox()
         Label7 = New Label()
         Label6 = New Label()
         Label5 = New Label()
         Nombre = New Label()
-        TextBox1 = New TextBox()
+        I_TOMO = New TextBox()
         ComboBox1 = New ComboBox()
         Label2 = New Label()
         Label1 = New Label()
@@ -87,13 +87,13 @@ Partial Class CalculoPlanilla
         Label3.TabIndex = 14
         Label3.Text = "Asiento"
         ' 
-        ' TextBox2
+        ' I_ASIENTO
         ' 
-        TextBox2.Location = New Point(264, 36)
-        TextBox2.MaxLength = 5
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(72, 23)
-        TextBox2.TabIndex = 3
+        I_ASIENTO.Location = New Point(264, 36)
+        I_ASIENTO.MaxLength = 5
+        I_ASIENTO.Name = "I_ASIENTO"
+        I_ASIENTO.Size = New Size(72, 23)
+        I_ASIENTO.TabIndex = 3
         ' 
         ' Label9
         ' 
@@ -205,25 +205,25 @@ Partial Class CalculoPlanilla
         ' 
         Panel.BackColor = SystemColors.ActiveCaption
         Panel.BorderStyle = BorderStyle.Fixed3D
-        Panel.Controls.Add(TextBox7)
+        Panel.Controls.Add(RB_C_No)
+        Panel.Controls.Add(RB_C_Si)
+        Panel.Controls.Add(I_APELLIDO_C)
         Panel.Controls.Add(Label8)
-        Panel.Controls.Add(CheckBox2)
-        Panel.Controls.Add(CheckBox1)
         Panel.Controls.Add(Label4)
-        Panel.Controls.Add(TextBox6)
-        Panel.Controls.Add(TextBox5)
-        Panel.Controls.Add(TextBox4)
-        Panel.Controls.Add(TextBox3)
+        Panel.Controls.Add(I_APELLIDO2)
+        Panel.Controls.Add(I_APELLIDO)
+        Panel.Controls.Add(I_NOMBRE2)
+        Panel.Controls.Add(I_NOMBRE)
         Panel.Controls.Add(Label7)
         Panel.Controls.Add(Label6)
         Panel.Controls.Add(Label5)
         Panel.Controls.Add(Nombre)
-        Panel.Controls.Add(TextBox1)
+        Panel.Controls.Add(I_TOMO)
         Panel.Controls.Add(ComboBox1)
         Panel.Controls.Add(Label2)
         Panel.Controls.Add(Label1)
         Panel.Controls.Add(Label3)
-        Panel.Controls.Add(TextBox2)
+        Panel.Controls.Add(I_ASIENTO)
         Panel.ForeColor = Color.Black
         Panel.Location = New Point(38, 23)
         Panel.Name = "Panel"
@@ -231,41 +231,43 @@ Partial Class CalculoPlanilla
         Panel.Size = New Size(459, 283)
         Panel.TabIndex = 0
         ' 
-        ' TextBox7
+        ' RB_C_No
         ' 
-        TextBox7.Location = New Point(140, 190)
-        TextBox7.Name = "TextBox7"
-        TextBox7.Size = New Size(100, 23)
-        TextBox7.TabIndex = 9
+        RB_C_No.AutoSize = True
+        RB_C_No.Location = New Point(12, 219)
+        RB_C_No.Name = "RB_C_No"
+        RB_C_No.Size = New Size(41, 19)
+        RB_C_No.TabIndex = 30
+        RB_C_No.TabStop = True
+        RB_C_No.Text = "No"
+        RB_C_No.UseVisualStyleBackColor = True
+        ' 
+        ' RB_C_Si
+        ' 
+        RB_C_Si.AutoSize = True
+        RB_C_Si.Location = New Point(12, 194)
+        RB_C_Si.Name = "RB_C_Si"
+        RB_C_Si.Size = New Size(34, 19)
+        RB_C_Si.TabIndex = 29
+        RB_C_Si.TabStop = True
+        RB_C_Si.Text = "Si"
+        RB_C_Si.UseVisualStyleBackColor = True
+        ' 
+        ' I_APELLIDO_C
+        ' 
+        I_APELLIDO_C.Location = New Point(160, 190)
+        I_APELLIDO_C.Name = "I_APELLIDO_C"
+        I_APELLIDO_C.Size = New Size(100, 23)
+        I_APELLIDO_C.TabIndex = 9
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(140, 172)
+        Label8.Location = New Point(160, 172)
         Label8.Name = "Label8"
         Label8.Size = New Size(90, 15)
         Label8.TabIndex = 7
         Label8.Text = "Apellido casada"
-        ' 
-        ' CheckBox2
-        ' 
-        CheckBox2.AutoSize = True
-        CheckBox2.Location = New Point(9, 228)
-        CheckBox2.Name = "CheckBox2"
-        CheckBox2.Size = New Size(42, 19)
-        CheckBox2.TabIndex = 28
-        CheckBox2.Text = "No"
-        CheckBox2.UseVisualStyleBackColor = True
-        ' 
-        ' CheckBox1
-        ' 
-        CheckBox1.AutoSize = True
-        CheckBox1.Location = New Point(10, 202)
-        CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(35, 19)
-        CheckBox1.TabIndex = 8
-        CheckBox1.Text = "Si"
-        CheckBox1.UseVisualStyleBackColor = True
         ' 
         ' Label4
         ' 
@@ -276,33 +278,33 @@ Partial Class CalculoPlanilla
         Label4.TabIndex = 5
         Label4.Text = "Es casado/a"
         ' 
-        ' TextBox6
+        ' I_APELLIDO2
         ' 
-        TextBox6.Location = New Point(163, 135)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(100, 23)
-        TextBox6.TabIndex = 7
+        I_APELLIDO2.Location = New Point(163, 135)
+        I_APELLIDO2.Name = "I_APELLIDO2"
+        I_APELLIDO2.Size = New Size(100, 23)
+        I_APELLIDO2.TabIndex = 7
         ' 
-        ' TextBox5
+        ' I_APELLIDO
         ' 
-        TextBox5.Location = New Point(163, 91)
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(100, 23)
-        TextBox5.TabIndex = 5
+        I_APELLIDO.Location = New Point(163, 91)
+        I_APELLIDO.Name = "I_APELLIDO"
+        I_APELLIDO.Size = New Size(100, 23)
+        I_APELLIDO.TabIndex = 5
         ' 
-        ' TextBox4
+        ' I_NOMBRE2
         ' 
-        TextBox4.Location = New Point(7, 135)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(100, 23)
-        TextBox4.TabIndex = 6
+        I_NOMBRE2.Location = New Point(7, 135)
+        I_NOMBRE2.Name = "I_NOMBRE2"
+        I_NOMBRE2.Size = New Size(100, 23)
+        I_NOMBRE2.TabIndex = 6
         ' 
-        ' TextBox3
+        ' I_NOMBRE
         ' 
-        TextBox3.Location = New Point(7, 91)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(100, 23)
-        TextBox3.TabIndex = 4
+        I_NOMBRE.Location = New Point(7, 91)
+        I_NOMBRE.Name = "I_NOMBRE"
+        I_NOMBRE.Size = New Size(100, 23)
+        I_NOMBRE.TabIndex = 4
         ' 
         ' Label7
         ' 
@@ -340,13 +342,13 @@ Partial Class CalculoPlanilla
         Nombre.TabIndex = 16
         Nombre.Text = "Nombre"
         ' 
-        ' TextBox1
+        ' I_TOMO
         ' 
-        TextBox1.Location = New Point(166, 36)
-        TextBox1.MaxLength = 4
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(74, 23)
-        TextBox1.TabIndex = 2
+        I_TOMO.Location = New Point(166, 36)
+        I_TOMO.MaxLength = 4
+        I_TOMO.Name = "I_TOMO"
+        I_TOMO.Size = New Size(74, 23)
+        I_TOMO.TabIndex = 2
         ' 
         ' ComboBox1
         ' 
@@ -585,7 +587,7 @@ Partial Class CalculoPlanilla
         PerformLayout()
     End Sub
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents I_ASIENTO As TextBox
 
     Private Sub Label4_Click(sender As Object, e As EventArgs)
 
@@ -614,19 +616,19 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label18 As Label
 
     Friend WithEvents Panel As Panel
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents I_APELLIDO2 As TextBox
+    Friend WithEvents I_APELLIDO As TextBox
+    Friend WithEvents I_NOMBRE2 As TextBox
+    Friend WithEvents I_NOMBRE As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Nombre As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents I_TOMO As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents I_APELLIDO_C As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents CheckBox1 As CheckBox
@@ -652,4 +654,6 @@ Partial Class CalculoPlanilla
     Friend WithEvents O_D3 As TextBox
     Friend WithEvents O_D2 As TextBox
     Friend WithEvents Label23 As Label
+    Friend WithEvents RB_C_Si As RadioButton
+    Friend WithEvents RB_C_No As RadioButton
 End Class
