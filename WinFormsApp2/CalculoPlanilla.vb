@@ -11,8 +11,16 @@ Class CalculoPlanilla
     Private Sub I_HT_TextChanged(sender As Object, e As EventArgs) Handles I_HT.Leave
         If I_HT.Text.Equals("") Then
             CalculoSalario.PropHorasTrabajadas = 0
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            I_ISR.Text = CalculoSalario.CalcularIR()
         Else
             CalculoSalario.PropHorasTrabajadas = Int(I_HT.Text)
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            I_ISR.Text = CalculoSalario.CalcularIR()
         End If
     End Sub
     Private Sub I_SXH_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_SXH.KeyPress
@@ -25,12 +33,18 @@ Class CalculoPlanilla
         If I_SXH.Text.Equals("") Then
             CalculoSalario.PropSalarioHora = 0
             I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            I_ISR.Text = CalculoSalario.CalcularIR()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
         Else
             CalculoSalario.PropSalarioHora = Double.Parse(I_SXH.Text)
             I_SB.Text = CalculoSalario.CalcularSalarioBruto()
             I_SS.Text = CalculoSalario.CalcularSS()
             I_SE.Text = CalculoSalario.CalcularSE()
             I_ISR.Text = CalculoSalario.CalcularIR()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
         End If
     End Sub
     Private Sub I_HE_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_HE.KeyPress
@@ -43,6 +57,11 @@ Class CalculoPlanilla
         ' Verificar si el texto está vacio
         If I_HE.Text.Equals("") Then
             O_HE.Text = CalculoSalario.CalcularHorasExtras(0)
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            I_ISR.Text = CalculoSalario.CalcularIR()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
         Else
             ' De lo contrario seguir con la operacion
             O_HE.Text = CalculoSalario.CalcularHorasExtras(Integer.Parse(I_HE.Text))
@@ -50,6 +69,7 @@ Class CalculoPlanilla
             I_SS.Text = CalculoSalario.CalcularSS()
             I_SE.Text = CalculoSalario.CalcularSE()
             I_ISR.Text = CalculoSalario.CalcularIR()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
         End If
     End Sub
 
