@@ -74,6 +74,13 @@ Partial Class CalculoPlanilla
         Label15 = New Label()
         I_SB = New TextBox()
         Label17 = New Label()
+        Panel2 = New Panel()
+        Label25 = New Label()
+        Label26 = New Label()
+        TextBox1 = New TextBox()
+        Button1 = New Button()
+        Button2 = New Button()
+        Button3 = New Button()
         Panel.SuspendLayout()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -81,14 +88,16 @@ Partial Class CalculoPlanilla
         ' Label3
         ' 
         Label3.AutoSize = True
+        Label3.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.Location = New Point(264, 18)
         Label3.Name = "Label3"
-        Label3.Size = New Size(47, 15)
+        Label3.Size = New Size(51, 15)
         Label3.TabIndex = 14
         Label3.Text = "Asiento"
         ' 
         ' I_ASIENTO
         ' 
+        I_ASIENTO.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_ASIENTO.Location = New Point(264, 36)
         I_ASIENTO.MaxLength = 5
         I_ASIENTO.Name = "I_ASIENTO"
@@ -98,95 +107,107 @@ Partial Class CalculoPlanilla
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Location = New Point(64, 333)
+        Label9.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.Location = New Point(700, 110)
         Label9.Name = "Label9"
-        Label9.Size = New Size(96, 15)
+        Label9.Size = New Size(106, 15)
         Label9.TabIndex = 10
         Label9.Text = "Horas trabajados"
         ' 
         ' Label10
         ' 
         Label10.AutoSize = True
-        Label10.Location = New Point(64, 362)
+        Label10.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Location = New Point(700, 139)
         Label10.Name = "Label10"
-        Label10.Size = New Size(80, 15)
+        Label10.Size = New Size(88, 15)
         Label10.TabIndex = 11
         Label10.Text = "Salario x Hora"
         ' 
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Location = New Point(68, 391)
+        Label11.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.Location = New Point(704, 168)
         Label11.Name = "Label11"
-        Label11.Size = New Size(67, 15)
+        Label11.Size = New Size(75, 15)
         Label11.TabIndex = 21
         Label11.Text = "Horas Extra"
         ' 
         ' Label12
         ' 
         Label12.AutoSize = True
-        Label12.Location = New Point(304, 361)
+        Label12.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label12.Location = New Point(940, 138)
         Label12.Name = "Label12"
-        Label12.Size = New Size(72, 15)
+        Label12.Size = New Size(78, 15)
         Label12.TabIndex = 22
         Label12.Text = "Descuento 2"
         ' 
         ' Label13
         ' 
         Label13.AutoSize = True
-        Label13.Location = New Point(304, 390)
+        Label13.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.Location = New Point(940, 167)
         Label13.Name = "Label13"
-        Label13.Size = New Size(72, 15)
+        Label13.Size = New Size(78, 15)
         Label13.TabIndex = 23
         Label13.Text = "Descuento 3"
         ' 
         ' Label14
         ' 
         Label14.AutoSize = True
-        Label14.Location = New Point(304, 332)
+        Label14.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label14.Location = New Point(940, 109)
         Label14.Name = "Label14"
-        Label14.Size = New Size(72, 15)
+        Label14.Size = New Size(78, 15)
         Label14.TabIndex = 24
         Label14.Text = "Descuento 1"
         ' 
         ' I_HT
         ' 
-        I_HT.Location = New Point(174, 324)
+        I_HT.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_HT.Location = New Point(810, 101)
         I_HT.Name = "I_HT"
         I_HT.Size = New Size(100, 23)
         I_HT.TabIndex = 0
         ' 
         ' I_D1
         ' 
-        I_D1.Location = New Point(382, 324)
+        I_D1.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_D1.Location = New Point(1018, 101)
         I_D1.Name = "I_D1"
         I_D1.Size = New Size(100, 23)
         I_D1.TabIndex = 3
         ' 
         ' I_SXH
         ' 
-        I_SXH.Location = New Point(174, 353)
+        I_SXH.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_SXH.Location = New Point(810, 130)
         I_SXH.Name = "I_SXH"
         I_SXH.Size = New Size(100, 23)
         I_SXH.TabIndex = 1
         ' 
         ' I_HE
         ' 
-        I_HE.Location = New Point(174, 382)
+        I_HE.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_HE.Location = New Point(810, 159)
         I_HE.Name = "I_HE"
         I_HE.Size = New Size(100, 23)
         I_HE.TabIndex = 2
         ' 
         ' I_D3
         ' 
-        I_D3.Location = New Point(382, 382)
+        I_D3.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_D3.Location = New Point(1018, 159)
         I_D3.Name = "I_D3"
         I_D3.Size = New Size(100, 23)
         I_D3.TabIndex = 6
         ' 
         ' I_D2
         ' 
-        I_D2.Location = New Point(382, 353)
+        I_D2.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_D2.Location = New Point(1018, 130)
         I_D2.Name = "I_D2"
         I_D2.Size = New Size(100, 23)
         I_D2.TabIndex = 5
@@ -194,17 +215,18 @@ Partial Class CalculoPlanilla
         ' Label18
         ' 
         Label18.AutoSize = True
-        Label18.BackColor = SystemColors.ActiveCaption
-        Label18.Location = New Point(27, 407)
+        Label18.BackColor = Color.FromArgb(CByte(46), CByte(51), CByte(76))
+        Label18.Font = New Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label18.ForeColor = SystemColors.ActiveCaption
+        Label18.Location = New Point(700, 210)
         Label18.Name = "Label18"
-        Label18.Size = New Size(52, 15)
+        Label18.Size = New Size(95, 25)
         Label18.TabIndex = 6
         Label18.Text = "Calculos"
         ' 
         ' Panel
         ' 
         Panel.BackColor = SystemColors.ActiveCaption
-        Panel.BorderStyle = BorderStyle.Fixed3D
         Panel.Controls.Add(RB_C_No)
         Panel.Controls.Add(RB_C_Si)
         Panel.Controls.Add(I_APELLIDO_C)
@@ -225,7 +247,7 @@ Partial Class CalculoPlanilla
         Panel.Controls.Add(Label3)
         Panel.Controls.Add(I_ASIENTO)
         Panel.ForeColor = Color.Black
-        Panel.Location = New Point(38, 23)
+        Panel.Location = New Point(224, 101)
         Panel.Name = "Panel"
         Panel.RightToLeft = RightToLeft.No
         Panel.Size = New Size(459, 283)
@@ -234,6 +256,7 @@ Partial Class CalculoPlanilla
         ' RB_C_No
         ' 
         RB_C_No.AutoSize = True
+        RB_C_No.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         RB_C_No.Location = New Point(166, 218)
         RB_C_No.Name = "RB_C_No"
         RB_C_No.Size = New Size(41, 19)
@@ -245,9 +268,10 @@ Partial Class CalculoPlanilla
         ' RB_C_Si
         ' 
         RB_C_Si.AutoSize = True
+        RB_C_Si.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         RB_C_Si.Location = New Point(166, 193)
         RB_C_Si.Name = "RB_C_Si"
-        RB_C_Si.Size = New Size(34, 19)
+        RB_C_Si.Size = New Size(36, 19)
         RB_C_Si.TabIndex = 29
         RB_C_Si.TabStop = True
         RB_C_Si.Text = "Si"
@@ -256,6 +280,7 @@ Partial Class CalculoPlanilla
         ' I_APELLIDO_C
         ' 
         I_APELLIDO_C.Enabled = False
+        I_APELLIDO_C.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_APELLIDO_C.Location = New Point(295, 203)
         I_APELLIDO_C.Name = "I_APELLIDO_C"
         I_APELLIDO_C.Size = New Size(147, 23)
@@ -264,23 +289,26 @@ Partial Class CalculoPlanilla
         ' Label8
         ' 
         Label8.AutoSize = True
+        Label8.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.Location = New Point(295, 175)
         Label8.Name = "Label8"
-        Label8.Size = New Size(90, 15)
+        Label8.Size = New Size(98, 15)
         Label8.TabIndex = 7
         Label8.Text = "Apellido casada"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
+        Label4.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.Location = New Point(160, 175)
         Label4.Name = "Label4"
-        Label4.Size = New Size(114, 15)
+        Label4.Size = New Size(126, 15)
         Label4.TabIndex = 5
         Label4.Text = "Usa Apellido Casada"
         ' 
         ' I_APELLIDO2
         ' 
+        I_APELLIDO2.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_APELLIDO2.Location = New Point(163, 135)
         I_APELLIDO2.Name = "I_APELLIDO2"
         I_APELLIDO2.Size = New Size(100, 23)
@@ -288,6 +316,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_APELLIDO
         ' 
+        I_APELLIDO.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_APELLIDO.Location = New Point(163, 91)
         I_APELLIDO.Name = "I_APELLIDO"
         I_APELLIDO.Size = New Size(100, 23)
@@ -295,6 +324,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_NOMBRE2
         ' 
+        I_NOMBRE2.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_NOMBRE2.Location = New Point(7, 135)
         I_NOMBRE2.Name = "I_NOMBRE2"
         I_NOMBRE2.Size = New Size(100, 23)
@@ -302,6 +332,7 @@ Partial Class CalculoPlanilla
         ' 
         ' I_NOMBRE
         ' 
+        I_NOMBRE.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_NOMBRE.Location = New Point(7, 91)
         I_NOMBRE.Name = "I_NOMBRE"
         I_NOMBRE.Size = New Size(100, 23)
@@ -310,41 +341,46 @@ Partial Class CalculoPlanilla
         ' Label7
         ' 
         Label7.AutoSize = True
+        Label7.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.Location = New Point(160, 117)
         Label7.Name = "Label7"
-        Label7.Size = New Size(60, 15)
+        Label7.Size = New Size(63, 15)
         Label7.TabIndex = 3
         Label7.Text = "Apellido 2"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
+        Label6.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.Location = New Point(163, 73)
         Label6.Name = "Label6"
-        Label6.Size = New Size(54, 15)
+        Label6.Size = New Size(56, 15)
         Label6.TabIndex = 1
         Label6.Text = "Apellido "
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
+        Label5.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.Location = New Point(7, 117)
         Label5.Name = "Label5"
-        Label5.Size = New Size(60, 15)
+        Label5.Size = New Size(63, 15)
         Label5.TabIndex = 18
         Label5.Text = "Nombre 2"
         ' 
         ' Nombre
         ' 
         Nombre.AutoSize = True
+        Nombre.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Nombre.Location = New Point(7, 73)
         Nombre.Name = "Nombre"
-        Nombre.Size = New Size(51, 15)
+        Nombre.Size = New Size(53, 15)
         Nombre.TabIndex = 16
         Nombre.Text = "Nombre"
         ' 
         ' I_TOMO
         ' 
+        I_TOMO.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_TOMO.Location = New Point(166, 36)
         I_TOMO.MaxLength = 4
         I_TOMO.Name = "I_TOMO"
@@ -354,6 +390,7 @@ Partial Class CalculoPlanilla
         ' ComboBox1
         ' 
         ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox1.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         ComboBox1.FormattingEnabled = True
         ComboBox1.ItemHeight = 15
         ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "E", "PE"})
@@ -365,25 +402,26 @@ Partial Class CalculoPlanilla
         ' Label2
         ' 
         Label2.AutoSize = True
+        Label2.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(163, 18)
         Label2.Name = "Label2"
-        Label2.Size = New Size(37, 15)
+        Label2.Size = New Size(39, 15)
         Label2.TabIndex = 12
         Label2.Text = "Tomo"
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.Location = New Point(7, 18)
         Label1.Name = "Label1"
-        Label1.Size = New Size(41, 15)
+        Label1.Size = New Size(45, 15)
         Label1.TabIndex = 10
         Label1.Text = "Prefijo"
         ' 
         ' Panel1
         ' 
         Panel1.BackColor = SystemColors.ActiveCaption
-        Panel1.BorderStyle = BorderStyle.Fixed3D
         Panel1.Controls.Add(Label24)
         Panel1.Controls.Add(O_D3)
         Panel1.Controls.Add(O_D2)
@@ -402,24 +440,26 @@ Partial Class CalculoPlanilla
         Panel1.Controls.Add(Label15)
         Panel1.Controls.Add(I_SB)
         Panel1.Controls.Add(Label17)
-        Panel1.Location = New Point(38, 420)
+        Panel1.Location = New Point(704, 238)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(459, 146)
+        Panel1.Size = New Size(439, 146)
         Panel1.TabIndex = 7
         ' 
         ' Label24
         ' 
         Label24.AutoSize = True
-        Label24.Location = New Point(134, 108)
+        Label24.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label24.Location = New Point(146, 113)
         Label24.Name = "Label24"
-        Label24.Size = New Size(21, 15)
+        Label24.Size = New Size(22, 15)
         Label24.TabIndex = 63
         Label24.Text = "D3"
         ' 
         ' O_D3
         ' 
         O_D3.Enabled = False
-        O_D3.Location = New Point(160, 105)
+        O_D3.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        O_D3.Location = New Point(220, 108)
         O_D3.Name = "O_D3"
         O_D3.Size = New Size(57, 23)
         O_D3.TabIndex = 62
@@ -427,7 +467,8 @@ Partial Class CalculoPlanilla
         ' O_D2
         ' 
         O_D2.Enabled = False
-        O_D2.Location = New Point(160, 76)
+        O_D2.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        O_D2.Location = New Point(220, 79)
         O_D2.Name = "O_D2"
         O_D2.Size = New Size(57, 23)
         O_D2.TabIndex = 61
@@ -435,25 +476,28 @@ Partial Class CalculoPlanilla
         ' Label23
         ' 
         Label23.AutoSize = True
-        Label23.Location = New Point(134, 79)
+        Label23.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label23.Location = New Point(146, 84)
         Label23.Name = "Label23"
-        Label23.Size = New Size(21, 15)
+        Label23.Size = New Size(22, 15)
         Label23.TabIndex = 60
         Label23.Text = "D2"
         ' 
         ' Label22
         ' 
         Label22.AutoSize = True
-        Label22.Location = New Point(134, 45)
+        Label22.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label22.Location = New Point(146, 50)
         Label22.Name = "Label22"
-        Label22.Size = New Size(21, 15)
+        Label22.Size = New Size(22, 15)
         Label22.TabIndex = 59
         Label22.Text = "D1"
         ' 
         ' O_D1
         ' 
         O_D1.Enabled = False
-        O_D1.Location = New Point(160, 42)
+        O_D1.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        O_D1.Location = New Point(220, 45)
         O_D1.Name = "O_D1"
         O_D1.Size = New Size(57, 23)
         O_D1.TabIndex = 58
@@ -461,7 +505,8 @@ Partial Class CalculoPlanilla
         ' O_HE
         ' 
         O_HE.Enabled = False
-        O_HE.Location = New Point(160, 13)
+        O_HE.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        O_HE.Location = New Point(220, 16)
         O_HE.Name = "O_HE"
         O_HE.Size = New Size(57, 23)
         O_HE.TabIndex = 57
@@ -469,16 +514,18 @@ Partial Class CalculoPlanilla
         ' Label21
         ' 
         Label21.AutoSize = True
-        Label21.Location = New Point(134, 16)
+        Label21.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label21.Location = New Point(146, 21)
         Label21.Name = "Label21"
-        Label21.Size = New Size(25, 15)
+        Label21.Size = New Size(75, 15)
         Label21.TabIndex = 56
-        Label21.Text = "H.E"
+        Label21.Text = "Horas Extra"
         ' 
         ' O_SN
         ' 
         O_SN.Enabled = False
-        O_SN.Location = New Point(264, 13)
+        O_SN.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        O_SN.Location = New Point(358, 16)
         O_SN.Name = "O_SN"
         O_SN.Size = New Size(57, 23)
         O_SN.TabIndex = 55
@@ -486,16 +533,18 @@ Partial Class CalculoPlanilla
         ' Label20
         ' 
         Label20.AutoSize = True
-        Label20.Location = New Point(238, 16)
+        Label20.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.Location = New Point(283, 21)
         Label20.Name = "Label20"
-        Label20.Size = New Size(25, 15)
+        Label20.Size = New Size(77, 15)
         Label20.TabIndex = 54
-        Label20.Text = "S.N"
+        Label20.Text = "Salario Neto"
         ' 
         ' I_ISR
         ' 
         I_ISR.Enabled = False
-        I_ISR.Location = New Point(44, 76)
+        I_ISR.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_ISR.Location = New Point(89, 79)
         I_ISR.Name = "I_ISR"
         I_ISR.Size = New Size(51, 23)
         I_ISR.TabIndex = 52
@@ -503,16 +552,18 @@ Partial Class CalculoPlanilla
         ' Label19
         ' 
         Label19.AutoSize = True
-        Label19.Location = New Point(11, 79)
+        Label19.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label19.Location = New Point(3, 84)
         Label19.Name = "Label19"
-        Label19.Size = New Size(29, 15)
+        Label19.Size = New Size(35, 15)
         Label19.TabIndex = 51
         Label19.Text = "I.S.R"
         ' 
         ' I_SE
         ' 
         I_SE.Enabled = False
-        I_SE.Location = New Point(44, 105)
+        I_SE.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_SE.Location = New Point(89, 108)
         I_SE.Name = "I_SE"
         I_SE.Size = New Size(51, 23)
         I_SE.TabIndex = 50
@@ -520,16 +571,18 @@ Partial Class CalculoPlanilla
         ' Label16
         ' 
         Label16.AutoSize = True
-        Label16.Location = New Point(12, 108)
+        Label16.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label16.Location = New Point(4, 113)
         Label16.Name = "Label16"
-        Label16.Size = New Size(22, 15)
+        Label16.Size = New Size(57, 15)
         Label16.TabIndex = 49
-        Label16.Text = "S.E"
+        Label16.Text = "Seg. Edu"
         ' 
         ' I_SS
         ' 
         I_SS.Enabled = False
-        I_SS.Location = New Point(44, 42)
+        I_SS.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_SS.Location = New Point(89, 45)
         I_SS.Name = "I_SS"
         I_SS.Size = New Size(51, 23)
         I_SS.TabIndex = 48
@@ -537,16 +590,18 @@ Partial Class CalculoPlanilla
         ' Label15
         ' 
         Label15.AutoSize = True
-        Label15.Location = New Point(11, 45)
+        Label15.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label15.Location = New Point(3, 50)
         Label15.Name = "Label15"
-        Label15.Size = New Size(22, 15)
+        Label15.Size = New Size(71, 15)
         Label15.TabIndex = 47
-        Label15.Text = "S.S"
+        Label15.Text = "Seg. Social"
         ' 
         ' I_SB
         ' 
         I_SB.Enabled = False
-        I_SB.Location = New Point(44, 13)
+        I_SB.Font = New Font("Roboto", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_SB.Location = New Point(89, 16)
         I_SB.Name = "I_SB"
         I_SB.Size = New Size(51, 23)
         I_SB.TabIndex = 46
@@ -554,17 +609,101 @@ Partial Class CalculoPlanilla
         ' Label17
         ' 
         Label17.AutoSize = True
-        Label17.Location = New Point(11, 16)
+        Label17.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label17.Location = New Point(3, 21)
         Label17.Name = "Label17"
-        Label17.Size = New Size(23, 15)
+        Label17.Size = New Size(81, 15)
         Label17.TabIndex = 45
-        Label17.Text = "S.B"
+        Label17.Text = "Salario Bruto"
+        ' 
+        ' Panel2
+        ' 
+        Panel2.BackColor = Color.FromArgb(CByte(24), CByte(30), CByte(54))
+        Panel2.Location = New Point(0, 1)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(200, 406)
+        Panel2.TabIndex = 25
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.BackColor = Color.FromArgb(CByte(46), CByte(51), CByte(76))
+        Label25.Font = New Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label25.ForeColor = SystemColors.ActiveCaption
+        Label25.Location = New Point(221, 62)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(339, 25)
+        Label25.TabIndex = 26
+        Label25.Text = "Informacion General del Empleado"
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.BackColor = Color.FromArgb(CByte(46), CByte(51), CByte(76))
+        Label26.Font = New Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label26.ForeColor = SystemColors.ActiveCaption
+        Label26.Location = New Point(700, 62)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(202, 25)
+        Label26.TabIndex = 27
+        Label26.Text = "Horas y Descuentos"
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.BackColor = Color.FromArgb(CByte(74), CByte(79), CByte(99))
+        TextBox1.BorderStyle = BorderStyle.None
+        TextBox1.Font = New Font("Roboto", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox1.ForeColor = SystemColors.ScrollBar
+        TextBox1.Location = New Point(224, 12)
+        TextBox1.Multiline = True
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(292, 20)
+        TextBox1.TabIndex = 28
+        TextBox1.Text = "Busqueda de Emploado...."
+        ' 
+        ' Button1
+        ' 
+        Button1.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.Location = New Point(522, 10)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 29
+        Button1.Text = "Buscar"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button2.Location = New Point(810, 209)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 23)
+        Button2.TabIndex = 30
+        Button2.Text = "Mensual"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' Button3
+        ' 
+        Button3.Font = New Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.Location = New Point(906, 209)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(75, 23)
+        Button3.TabIndex = 31
+        Button3.Text = "Anual"
+        Button3.UseVisualStyleBackColor = True
         ' 
         ' CalculoPlanilla
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(554, 578)
+        BackColor = Color.FromArgb(CByte(46), CByte(51), CByte(76))
+        ClientSize = New Size(1169, 407)
+        Controls.Add(Button3)
+        Controls.Add(Button2)
+        Controls.Add(Button1)
+        Controls.Add(TextBox1)
+        Controls.Add(Label26)
+        Controls.Add(Label25)
+        Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Panel)
         Controls.Add(Label18)
@@ -580,7 +719,9 @@ Partial Class CalculoPlanilla
         Controls.Add(Label11)
         Controls.Add(Label10)
         Controls.Add(Label9)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "CalculoPlanilla"
+        StartPosition = FormStartPosition.CenterScreen
         Panel.ResumeLayout(False)
         Panel.PerformLayout()
         Panel1.ResumeLayout(False)
@@ -658,4 +799,10 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label23 As Label
     Friend WithEvents RB_C_Si As RadioButton
     Friend WithEvents RB_C_No As RadioButton
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

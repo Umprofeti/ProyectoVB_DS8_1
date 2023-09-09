@@ -193,11 +193,15 @@ Class CalculoPlanilla
 
     Private Sub CalculoPlanilla_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If ComboBox1.Items.Count > 0 Then
-            ComboBox1.SelectedIndex = 7   ' The first item has index 0 '
+            ComboBox1.SelectedIndex = 7   ' El primer item en el indice es 0 '
         End If
     End Sub
 
     Private Sub Label4_Click_1(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
 
     End Sub
 End Class
