@@ -182,12 +182,14 @@ Class CalculoPlanilla
     Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
         If RB_C_No.Checked Then
             I_APELLIDO_C.Enabled = False
+            I_APELLIDO_C.Clear()
         End If
     End Sub
 
     Private Sub RB_C_Si_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_Si.CheckedChanged
         If RB_C_Si.Checked Then
             I_APELLIDO_C.Enabled = True
+
         End If
     End Sub
 
@@ -202,6 +204,18 @@ Class CalculoPlanilla
     End Sub
 
     Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
+
+    End Sub
+
+    Private Sub I_APELLIDO_C_TextChanged(sender As Object, e As EventArgs) Handles I_APELLIDO_C.TextChanged
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Private Sub O_SN_TextChanged(sender As Object, e As EventArgs) Handles O_SN.TextChanged
 
     End Sub
 End Class
