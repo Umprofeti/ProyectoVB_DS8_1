@@ -136,20 +136,25 @@ Class CalculoPlanilla
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_TOMO.KeyPress
         ' Verificar si la tecla presionada no es un caracter
-        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> "." Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
-    End Sub
-
-    Private Sub I_TOMO_TextChanged(sender As Object, e As EventArgs) Handles I_TOMO.TextChanged
+        If e.KeyChar = "." AndAlso TextBox1.Text.Contains(".") Then
+            e.Handled = True ' Evitar agregar un segundo punto decimal
+        End If
 
     End Sub
 
     Private Sub I_ASIENTO_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_ASIENTO.KeyPress
         ' Verificar si la tecla presionada no es un caracter
-        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> "." Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
+        If e.KeyChar = "." AndAlso I_ASIENTO.Text.Contains(".") Then
+            e.Handled = True ' Evitar agregar un segundo punto decimal
+        End If
+
+
     End Sub
 
     Private Sub I_NOMBRE_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_NOMBRE.KeyPress
@@ -158,7 +163,7 @@ Class CalculoPlanilla
     End Sub
 
     Private Function ValidarCaracter(sender, e) As Handle
-        If Char.IsNumber(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+        If Not Char.IsLetter(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> (".") Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
     End Function
@@ -181,8 +186,8 @@ Class CalculoPlanilla
 
     Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
         If RB_C_No.Checked Then
-            I_APELLIDO_C.Enabled = False
-            I_APELLIDO_C.Clear()
+            I_APELLIDO_C.Enabled = True
+
         End If
     End Sub
 
@@ -218,4 +223,17 @@ Class CalculoPlanilla
     Private Sub O_SN_TextChanged(sender As Object, e As EventArgs) Handles O_SN.TextChanged
 
     End Sub
+
+    Private Sub I_ASIENTO_TextChanged(sender As Object, e As EventArgs) Handles I_ASIENTO.TextChanged
+
+    End Sub
+
+    Private Sub I_SS_TextChanged(sender As Object, e As EventArgs) Handles I_SS.TextChanged
+
+    End Sub
+
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+
+    End Sub
+
 End Class

@@ -80,13 +80,13 @@
     Public Function CalcularSE() As Double
         Dim resultado As Double
         resultado = CalcularSalarioBruto() * SeguroEducativo
-        Return Math.Round(resultado)
+        Return Math.Round(resultado, 2)
     End Function
 
     Public Function CalcularSS() As Double
         Dim resultado As Double
         resultado = CalcularSalarioBruto() * SeguroSocial
-        Return Math.Round(resultado)
+        Return Math.Round(resultado, 2)
     End Function
 
     Public Function CalcularIR() As Double

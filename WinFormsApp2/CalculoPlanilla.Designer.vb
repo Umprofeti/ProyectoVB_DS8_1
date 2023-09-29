@@ -81,8 +81,10 @@ Partial Class CalculoPlanilla
         Button1 = New Button()
         Button2 = New Button()
         Button3 = New Button()
+        PictureBox1 = New PictureBox()
         Panel.SuspendLayout()
         Panel1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label3
@@ -114,7 +116,7 @@ Partial Class CalculoPlanilla
         Label9.Name = "Label9"
         Label9.Size = New Size(154, 20)
         Label9.TabIndex = 10
-        Label9.Text = "Horas trabajados"
+        Label9.Text = "Horas trabajadas"
         ' 
         ' Label10
         ' 
@@ -132,7 +134,7 @@ Partial Class CalculoPlanilla
         Label11.AutoSize = True
         Label11.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label11.ForeColor = SystemColors.ButtonFace
-        Label11.Location = New Point(805, 224)
+        Label11.Location = New Point(800, 221)
         Label11.Name = "Label11"
         Label11.Size = New Size(110, 20)
         Label11.TabIndex = 21
@@ -177,6 +179,7 @@ Partial Class CalculoPlanilla
         I_HT.Location = New Point(954, 140)
         I_HT.Margin = New Padding(3, 4, 3, 4)
         I_HT.Name = "I_HT"
+        I_HT.RightToLeft = RightToLeft.Yes
         I_HT.Size = New Size(114, 26)
         I_HT.TabIndex = 0
         ' 
@@ -186,6 +189,7 @@ Partial Class CalculoPlanilla
         I_D1.Location = New Point(1191, 140)
         I_D1.Margin = New Padding(3, 4, 3, 4)
         I_D1.Name = "I_D1"
+        I_D1.RightToLeft = RightToLeft.Yes
         I_D1.Size = New Size(114, 26)
         I_D1.TabIndex = 3
         ' 
@@ -195,6 +199,7 @@ Partial Class CalculoPlanilla
         I_SXH.Location = New Point(954, 180)
         I_SXH.Margin = New Padding(3, 4, 3, 4)
         I_SXH.Name = "I_SXH"
+        I_SXH.RightToLeft = RightToLeft.Yes
         I_SXH.Size = New Size(114, 26)
         I_SXH.TabIndex = 1
         ' 
@@ -204,6 +209,7 @@ Partial Class CalculoPlanilla
         I_HE.Location = New Point(954, 218)
         I_HE.Margin = New Padding(3, 4, 3, 4)
         I_HE.Name = "I_HE"
+        I_HE.RightToLeft = RightToLeft.Yes
         I_HE.Size = New Size(114, 26)
         I_HE.TabIndex = 2
         ' 
@@ -213,6 +219,7 @@ Partial Class CalculoPlanilla
         I_D3.Location = New Point(1191, 218)
         I_D3.Margin = New Padding(3, 4, 3, 4)
         I_D3.Name = "I_D3"
+        I_D3.RightToLeft = RightToLeft.Yes
         I_D3.Size = New Size(114, 26)
         I_D3.TabIndex = 6
         ' 
@@ -222,6 +229,7 @@ Partial Class CalculoPlanilla
         I_D2.Location = New Point(1191, 180)
         I_D2.Margin = New Padding(3, 4, 3, 4)
         I_D2.Name = "I_D2"
+        I_D2.RightToLeft = RightToLeft.Yes
         I_D2.Size = New Size(114, 26)
         I_D2.TabIndex = 5
         ' 
@@ -490,6 +498,7 @@ Partial Class CalculoPlanilla
         O_D3.Location = New Point(302, 130)
         O_D3.Margin = New Padding(3, 4, 3, 4)
         O_D3.Name = "O_D3"
+        O_D3.RightToLeft = RightToLeft.Yes
         O_D3.Size = New Size(65, 26)
         O_D3.TabIndex = 62
         ' 
@@ -500,6 +509,7 @@ Partial Class CalculoPlanilla
         O_D2.Location = New Point(302, 90)
         O_D2.Margin = New Padding(3, 4, 3, 4)
         O_D2.Name = "O_D2"
+        O_D2.RightToLeft = RightToLeft.Yes
         O_D2.Size = New Size(65, 26)
         O_D2.TabIndex = 61
         ' 
@@ -530,6 +540,7 @@ Partial Class CalculoPlanilla
         O_D1.Location = New Point(302, 56)
         O_D1.Margin = New Padding(3, 4, 3, 4)
         O_D1.Name = "O_D1"
+        O_D1.RightToLeft = RightToLeft.Yes
         O_D1.Size = New Size(65, 26)
         O_D1.TabIndex = 58
         ' 
@@ -540,6 +551,7 @@ Partial Class CalculoPlanilla
         O_HE.Location = New Point(302, 22)
         O_HE.Margin = New Padding(3, 4, 3, 4)
         O_HE.Name = "O_HE"
+        O_HE.RightToLeft = RightToLeft.Yes
         O_HE.Size = New Size(65, 26)
         O_HE.TabIndex = 57
         ' 
@@ -560,6 +572,7 @@ Partial Class CalculoPlanilla
         O_SN.Location = New Point(494, 22)
         O_SN.Margin = New Padding(3, 4, 3, 4)
         O_SN.Name = "O_SN"
+        O_SN.RightToLeft = RightToLeft.Yes
         O_SN.Size = New Size(65, 26)
         O_SN.TabIndex = 55
         ' 
@@ -580,6 +593,7 @@ Partial Class CalculoPlanilla
         I_ISR.Location = New Point(121, 93)
         I_ISR.Margin = New Padding(3, 4, 3, 4)
         I_ISR.Name = "I_ISR"
+        I_ISR.RightToLeft = RightToLeft.Yes
         I_ISR.Size = New Size(58, 26)
         I_ISR.TabIndex = 52
         ' 
@@ -600,6 +614,7 @@ Partial Class CalculoPlanilla
         I_SE.Location = New Point(121, 131)
         I_SE.Margin = New Padding(3, 4, 3, 4)
         I_SE.Name = "I_SE"
+        I_SE.RightToLeft = RightToLeft.Yes
         I_SE.Size = New Size(58, 26)
         I_SE.TabIndex = 50
         ' 
@@ -620,6 +635,7 @@ Partial Class CalculoPlanilla
         I_SS.Location = New Point(121, 62)
         I_SS.Margin = New Padding(3, 4, 3, 4)
         I_SS.Name = "I_SS"
+        I_SS.RightToLeft = RightToLeft.Yes
         I_SS.Size = New Size(58, 26)
         I_SS.TabIndex = 48
         ' 
@@ -640,6 +656,7 @@ Partial Class CalculoPlanilla
         I_SB.Location = New Point(121, 22)
         I_SB.Margin = New Padding(3, 4, 3, 4)
         I_SB.Name = "I_SB"
+        I_SB.RightToLeft = RightToLeft.Yes
         I_SB.Size = New Size(58, 26)
         I_SB.TabIndex = 46
         ' 
@@ -733,12 +750,24 @@ Partial Class CalculoPlanilla
         Button3.Text = "Anual"
         Button3.UseVisualStyleBackColor = True
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.Azure
+        PictureBox1.BorderStyle = BorderStyle.FixedSingle
+        PictureBox1.Image = My.Resources.Resources.groupe_medium
+        PictureBox1.Location = New Point(847, 2)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(556, 78)
+        PictureBox1.TabIndex = 32
+        PictureBox1.TabStop = False
+        ' 
         ' CalculoPlanilla
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(46), CByte(51), CByte(76))
         ClientSize = New Size(1415, 542)
+        Controls.Add(PictureBox1)
         Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(Button1)
@@ -769,6 +798,7 @@ Partial Class CalculoPlanilla
         Panel.PerformLayout()
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -848,4 +878,5 @@ Partial Class CalculoPlanilla
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
