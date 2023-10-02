@@ -8,6 +8,9 @@ Class CalculoPlanilla
         ' Verificar si la tecla presionada no es un caracter
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evitar agregar punto decimal
         End If
     End Sub
     Private Sub I_HT_TextChanged(sender As Object, e As EventArgs) Handles I_HT.Leave
@@ -31,6 +34,24 @@ Class CalculoPlanilla
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
     End Sub
+    Private Sub I_SXH_Enter(sender As Object, e As EventArgs) Handles I_SXH.Enter
+        If I_SXH.Text = "0.00" Then
+            I_SXH.Clear()
+        End If
+        ' Cambia el color del texto a gris'
+        I_SXH.ForeColor = Color.Gray
+    End Sub
+
+    Private Sub I_SXH_Leave(sender As Object, e As EventArgs)
+        If String.IsNullOrWhiteSpace(I_SXH.Text) Then
+            I_SXH.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_SXH.ForeColor = Color.Black
+        End If
+    End Sub
+
+
     Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs) Handles I_SXH.Leave
         If I_SXH.Text.Equals("") Then
             CalculoSalario.PropSalarioHora = 0
@@ -53,6 +74,8 @@ Class CalculoPlanilla
         ' Verificar si la tecla presionada no es un caracter
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evitar punto decimal
         End If
     End Sub
     Private Sub I_HE_TextChanged(sender As Object, e As EventArgs) Handles I_HE.TextChanged
@@ -116,6 +139,7 @@ Class CalculoPlanilla
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
+
     End Sub
 
     Private Sub I_D2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D2.KeyPress
@@ -132,7 +156,53 @@ Class CalculoPlanilla
         End If
     End Sub
 
+    Private Sub I_D1_Enter(sender As Object, e As EventArgs) Handles I_D1.Enter
+        If I_D1.Text = "0.00" Then
+            I_D1.Clear()
+        End If
+        ' Cambia el color del texto a gris'
+        I_D1.ForeColor = Color.Gray
+    End Sub
 
+    Private Sub I_D1_Leave(sender As Object, e As EventArgs) Handles I_D1.Leave
+        If String.IsNullOrWhiteSpace(I_D1.Text) Then
+            I_D1.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_D1.ForeColor = Color.Black
+        End If
+    End Sub
+    Private Sub I_D2_Enter(sender As Object, e As EventArgs) Handles I_D2.Enter
+        If I_D2.Text = "0.00" Then
+            I_D2.Clear()
+        End If
+        ' Cambia el color del texto a gris'
+        I_D2.ForeColor = Color.Gray
+    End Sub
+    Private Sub I_D2_Leave(sender As Object, e As EventArgs) Handles I_D2.Leave
+        If String.IsNullOrWhiteSpace(I_D2.Text) Then
+            I_D2.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_D2.ForeColor = Color.Black
+        End If
+    End Sub
+    Private Sub I_D3_Enter(sender As Object, e As EventArgs) Handles I_D3.Enter
+        If I_D3.Text = "0.00" Then
+            I_D3.Clear()
+        End If
+
+        ' Cambia el color del texto a gris'
+        I_D3.ForeColor = Color.Gray
+    End Sub
+    Private Sub I_D3_Leave(sender As Object, e As EventArgs) Handles I_D3.Leave
+        If String.IsNullOrWhiteSpace(I_D3.Text) Then
+            I_D3.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_D3.ForeColor = Color.Black
+        End If
+    End Sub
 
     Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_TOMO.KeyPress
         ' Verificar si la tecla presionada no es un caracter
@@ -140,7 +210,7 @@ Class CalculoPlanilla
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
         If e.KeyChar = "." AndAlso TextBox1.Text.Contains(".") Then
-            e.Handled = True ' Evitar agregar un segundo punto decimal
+            e.Handled = True ' Evitar agregar punto decimal
         End If
 
     End Sub
@@ -150,10 +220,9 @@ Class CalculoPlanilla
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> "." Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
-        If e.KeyChar = "." AndAlso I_ASIENTO.Text.Contains(".") Then
-            e.Handled = True ' Evitar agregar un segundo punto decimal
+        If e.KeyChar = "." Then
+            e.Handled = True ' Evitar agregar punto decimal
         End If
-
 
     End Sub
 
@@ -165,6 +234,9 @@ Class CalculoPlanilla
     Private Function ValidarCaracter(sender, e) As Handle
         If Not Char.IsLetter(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> (".") Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        End If
+        If e.KeyChar = "." Then
+            e.Handled = True ' Evitar agregar un segundo punto decimal
         End If
     End Function
 
@@ -236,4 +308,7 @@ Class CalculoPlanilla
 
     End Sub
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
 End Class
