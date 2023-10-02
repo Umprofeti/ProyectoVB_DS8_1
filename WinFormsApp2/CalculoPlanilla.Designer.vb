@@ -39,6 +39,8 @@ Partial Class CalculoPlanilla
         I_D2 = New TextBox()
         Label18 = New Label()
         Panel = New Panel()
+        Label28 = New Label()
+        Label27 = New Label()
         RB_C_No = New RadioButton()
         RB_C_Si = New RadioButton()
         I_APELLIDO_C = New TextBox()
@@ -95,7 +97,7 @@ Partial Class CalculoPlanilla
         Label3.AutoSize = True
         Label3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = SystemColors.ControlLightLight
-        Label3.Location = New Point(264, 18)
+        Label3.Location = New Point(259, 18)
         Label3.Name = "Label3"
         Label3.Size = New Size(59, 16)
         Label3.TabIndex = 14
@@ -104,7 +106,7 @@ Partial Class CalculoPlanilla
         ' I_ASIENTO
         ' 
         I_ASIENTO.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_ASIENTO.Location = New Point(264, 36)
+        I_ASIENTO.Location = New Point(259, 36)
         I_ASIENTO.MaxLength = 5
         I_ASIENTO.Name = "I_ASIENTO"
         I_ASIENTO.Size = New Size(72, 22)
@@ -253,6 +255,8 @@ Partial Class CalculoPlanilla
         ' Panel
         ' 
         Panel.BackColor = Color.FromArgb(CByte(79), CByte(78), CByte(93))
+        Panel.Controls.Add(Label28)
+        Panel.Controls.Add(Label27)
         Panel.Controls.Add(RB_C_No)
         Panel.Controls.Add(RB_C_Si)
         Panel.Controls.Add(I_APELLIDO_C)
@@ -279,12 +283,34 @@ Partial Class CalculoPlanilla
         Panel.Size = New Size(459, 274)
         Panel.TabIndex = 0
         ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        Label28.ForeColor = SystemColors.ControlLightLight
+        Label28.Location = New Point(220, 28)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(24, 32)
+        Label28.TabIndex = 32
+        Label28.Text = "-"
+        ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        Label27.ForeColor = SystemColors.ControlLightLight
+        Label27.Location = New Point(85, 28)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(24, 32)
+        Label27.TabIndex = 31
+        Label27.Text = "-"
+        ' 
         ' RB_C_No
         ' 
         RB_C_No.AutoSize = True
         RB_C_No.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         RB_C_No.ForeColor = SystemColors.ControlLightLight
-        RB_C_No.Location = New Point(166, 218)
+        RB_C_No.Location = New Point(70, 219)
         RB_C_No.Name = "RB_C_No"
         RB_C_No.Size = New Size(45, 20)
         RB_C_No.TabIndex = 30
@@ -297,7 +323,7 @@ Partial Class CalculoPlanilla
         RB_C_Si.AutoSize = True
         RB_C_Si.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         RB_C_Si.ForeColor = SystemColors.ControlLightLight
-        RB_C_Si.Location = New Point(166, 194)
+        RB_C_Si.Location = New Point(70, 195)
         RB_C_Si.Name = "RB_C_Si"
         RB_C_Si.Size = New Size(39, 20)
         RB_C_Si.TabIndex = 29
@@ -309,7 +335,7 @@ Partial Class CalculoPlanilla
         ' 
         I_APELLIDO_C.Enabled = False
         I_APELLIDO_C.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_APELLIDO_C.Location = New Point(295, 202)
+        I_APELLIDO_C.Location = New Point(223, 202)
         I_APELLIDO_C.Name = "I_APELLIDO_C"
         I_APELLIDO_C.Size = New Size(147, 22)
         I_APELLIDO_C.TabIndex = 9
@@ -319,7 +345,7 @@ Partial Class CalculoPlanilla
         Label8.AutoSize = True
         Label8.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.ForeColor = SystemColors.ControlLightLight
-        Label8.Location = New Point(295, 176)
+        Label8.Location = New Point(223, 176)
         Label8.Name = "Label8"
         Label8.Size = New Size(121, 16)
         Label8.TabIndex = 7
@@ -330,7 +356,7 @@ Partial Class CalculoPlanilla
         Label4.AutoSize = True
         Label4.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = SystemColors.ControlLightLight
-        Label4.Location = New Point(160, 176)
+        Label4.Location = New Point(67, 176)
         Label4.Name = "Label4"
         Label4.Size = New Size(155, 16)
         Label4.TabIndex = 5
@@ -339,7 +365,7 @@ Partial Class CalculoPlanilla
         ' I_APELLIDO2
         ' 
         I_APELLIDO2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_APELLIDO2.Location = New Point(163, 135)
+        I_APELLIDO2.Location = New Point(223, 131)
         I_APELLIDO2.MaxLength = 15
         I_APELLIDO2.Name = "I_APELLIDO2"
         I_APELLIDO2.Size = New Size(132, 22)
@@ -348,7 +374,7 @@ Partial Class CalculoPlanilla
         ' I_APELLIDO
         ' 
         I_APELLIDO.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_APELLIDO.Location = New Point(163, 92)
+        I_APELLIDO.Location = New Point(223, 88)
         I_APELLIDO.MaxLength = 15
         I_APELLIDO.Name = "I_APELLIDO"
         I_APELLIDO.Size = New Size(132, 22)
@@ -357,7 +383,7 @@ Partial Class CalculoPlanilla
         ' I_NOMBRE2
         ' 
         I_NOMBRE2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_NOMBRE2.Location = New Point(7, 135)
+        I_NOMBRE2.Location = New Point(67, 131)
         I_NOMBRE2.MaxLength = 15
         I_NOMBRE2.Name = "I_NOMBRE2"
         I_NOMBRE2.Size = New Size(132, 22)
@@ -366,7 +392,7 @@ Partial Class CalculoPlanilla
         ' I_NOMBRE
         ' 
         I_NOMBRE.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_NOMBRE.Location = New Point(7, 92)
+        I_NOMBRE.Location = New Point(67, 88)
         I_NOMBRE.MaxLength = 15
         I_NOMBRE.Name = "I_NOMBRE"
         I_NOMBRE.Size = New Size(132, 22)
@@ -377,7 +403,7 @@ Partial Class CalculoPlanilla
         Label7.AutoSize = True
         Label7.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = SystemColors.ControlLightLight
-        Label7.Location = New Point(160, 117)
+        Label7.Location = New Point(220, 113)
         Label7.Name = "Label7"
         Label7.Size = New Size(77, 16)
         Label7.TabIndex = 3
@@ -388,7 +414,7 @@ Partial Class CalculoPlanilla
         Label6.AutoSize = True
         Label6.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = SystemColors.ControlLightLight
-        Label6.Location = New Point(163, 74)
+        Label6.Location = New Point(223, 70)
         Label6.Name = "Label6"
         Label6.Size = New Size(69, 16)
         Label6.TabIndex = 1
@@ -399,7 +425,7 @@ Partial Class CalculoPlanilla
         Label5.AutoSize = True
         Label5.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = SystemColors.ControlLightLight
-        Label5.Location = New Point(7, 117)
+        Label5.Location = New Point(67, 113)
         Label5.Name = "Label5"
         Label5.Size = New Size(74, 16)
         Label5.TabIndex = 18
@@ -410,7 +436,7 @@ Partial Class CalculoPlanilla
         Nombre.AutoSize = True
         Nombre.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Nombre.ForeColor = SystemColors.ControlLightLight
-        Nombre.Location = New Point(7, 74)
+        Nombre.Location = New Point(67, 70)
         Nombre.Name = "Nombre"
         Nombre.Size = New Size(62, 16)
         Nombre.TabIndex = 16
@@ -419,7 +445,7 @@ Partial Class CalculoPlanilla
         ' I_TOMO
         ' 
         I_TOMO.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_TOMO.Location = New Point(166, 36)
+        I_TOMO.Location = New Point(124, 36)
         I_TOMO.MaxLength = 4
         I_TOMO.Name = "I_TOMO"
         I_TOMO.Size = New Size(74, 22)
@@ -434,7 +460,7 @@ Partial Class CalculoPlanilla
         ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "E", "PE"})
         ComboBox1.Location = New Point(7, 36)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(121, 24)
+        ComboBox1.Size = New Size(52, 24)
         ComboBox1.TabIndex = 1
         ' 
         ' Label2
@@ -442,7 +468,7 @@ Partial Class CalculoPlanilla
         Label2.AutoSize = True
         Label2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = SystemColors.ControlLightLight
-        Label2.Location = New Point(163, 18)
+        Label2.Location = New Point(121, 18)
         Label2.Name = "Label2"
         Label2.Size = New Size(47, 16)
         Label2.TabIndex = 12
@@ -490,7 +516,7 @@ Partial Class CalculoPlanilla
         Label24.AutoSize = True
         Label24.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label24.ForeColor = SystemColors.ControlLightLight
-        Label24.Location = New Point(230, 100)
+        Label24.Location = New Point(230, 98)
         Label24.Name = "Label24"
         Label24.Size = New Size(26, 16)
         Label24.TabIndex = 63
@@ -510,7 +536,7 @@ Partial Class CalculoPlanilla
         ' 
         O_D2.Enabled = False
         O_D2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        O_D2.Location = New Point(264, 68)
+        O_D2.Location = New Point(264, 71)
         O_D2.Name = "O_D2"
         O_D2.RightToLeft = RightToLeft.Yes
         O_D2.Size = New Size(57, 22)
@@ -521,7 +547,7 @@ Partial Class CalculoPlanilla
         Label23.AutoSize = True
         Label23.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label23.ForeColor = SystemColors.ControlLightLight
-        Label23.Location = New Point(230, 72)
+        Label23.Location = New Point(230, 67)
         Label23.Name = "Label23"
         Label23.Size = New Size(26, 16)
         Label23.TabIndex = 60
@@ -542,7 +568,7 @@ Partial Class CalculoPlanilla
         ' 
         O_D1.Enabled = False
         O_D1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        O_D1.Location = New Point(264, 42)
+        O_D1.Location = New Point(264, 43)
         O_D1.Name = "O_D1"
         O_D1.RightToLeft = RightToLeft.Yes
         O_D1.Size = New Size(57, 22)
@@ -563,7 +589,7 @@ Partial Class CalculoPlanilla
         Label21.AutoSize = True
         Label21.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label21.ForeColor = SystemColors.ControlLightLight
-        Label21.Location = New Point(169, 21)
+        Label21.Location = New Point(170, 16)
         Label21.Name = "Label21"
         Label21.Size = New Size(88, 16)
         Label21.TabIndex = 56
@@ -573,7 +599,7 @@ Partial Class CalculoPlanilla
         ' 
         O_SN.Enabled = False
         O_SN.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        O_SN.Location = New Point(432, 16)
+        O_SN.Location = New Point(427, 16)
         O_SN.Name = "O_SN"
         O_SN.RightToLeft = RightToLeft.Yes
         O_SN.Size = New Size(57, 22)
@@ -584,7 +610,7 @@ Partial Class CalculoPlanilla
         Label20.AutoSize = True
         Label20.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label20.ForeColor = SystemColors.ControlLightLight
-        Label20.Location = New Point(328, 22)
+        Label20.Location = New Point(327, 16)
         Label20.Name = "Label20"
         Label20.Size = New Size(94, 16)
         Label20.TabIndex = 54
@@ -594,7 +620,7 @@ Partial Class CalculoPlanilla
         ' 
         I_ISR.Enabled = False
         I_ISR.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_ISR.Location = New Point(106, 70)
+        I_ISR.Location = New Point(105, 70)
         I_ISR.Name = "I_ISR"
         I_ISR.RightToLeft = RightToLeft.Yes
         I_ISR.Size = New Size(51, 22)
@@ -605,7 +631,7 @@ Partial Class CalculoPlanilla
         Label19.AutoSize = True
         Label19.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label19.ForeColor = SystemColors.ControlLightLight
-        Label19.Location = New Point(3, 72)
+        Label19.Location = New Point(3, 71)
         Label19.Name = "Label19"
         Label19.Size = New Size(40, 16)
         Label19.TabIndex = 51
@@ -626,7 +652,7 @@ Partial Class CalculoPlanilla
         Label16.AutoSize = True
         Label16.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label16.ForeColor = SystemColors.ControlLightLight
-        Label16.Location = New Point(4, 100)
+        Label16.Location = New Point(3, 98)
         Label16.Name = "Label16"
         Label16.Size = New Size(70, 16)
         Label16.TabIndex = 49
@@ -636,7 +662,7 @@ Partial Class CalculoPlanilla
         ' 
         I_SS.Enabled = False
         I_SS.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_SS.Location = New Point(106, 46)
+        I_SS.Location = New Point(106, 41)
         I_SS.Name = "I_SS"
         I_SS.RightToLeft = RightToLeft.Yes
         I_SS.Size = New Size(51, 22)
@@ -647,7 +673,7 @@ Partial Class CalculoPlanilla
         Label15.AutoSize = True
         Label15.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label15.ForeColor = SystemColors.ControlLightLight
-        Label15.Location = New Point(3, 50)
+        Label15.Location = New Point(3, 42)
         Label15.Name = "Label15"
         Label15.Size = New Size(87, 16)
         Label15.TabIndex = 47
@@ -657,10 +683,10 @@ Partial Class CalculoPlanilla
         ' 
         I_SB.Enabled = False
         I_SB.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        I_SB.Location = New Point(106, 16)
+        I_SB.Location = New Point(105, 13)
         I_SB.Name = "I_SB"
         I_SB.RightToLeft = RightToLeft.Yes
-        I_SB.Size = New Size(51, 22)
+        I_SB.Size = New Size(52, 22)
         I_SB.TabIndex = 46
         ' 
         ' Label17
@@ -668,7 +694,7 @@ Partial Class CalculoPlanilla
         Label17.AutoSize = True
         Label17.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label17.ForeColor = SystemColors.ControlLightLight
-        Label17.Location = New Point(3, 21)
+        Label17.Location = New Point(3, 16)
         Label17.Name = "Label17"
         Label17.Size = New Size(97, 16)
         Label17.TabIndex = 45
@@ -889,4 +915,6 @@ Partial Class CalculoPlanilla
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label27 As Label
 End Class

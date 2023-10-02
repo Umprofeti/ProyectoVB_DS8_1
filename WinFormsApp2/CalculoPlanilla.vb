@@ -29,28 +29,23 @@ Class CalculoPlanilla
         End If
     End Sub
     Private Sub I_SXH_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_SXH.KeyPress
-        ' Verificar si la tecla presionada no es un caracter
+        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
-    End Sub
-    Private Sub I_SXH_Enter(sender As Object, e As EventArgs) Handles I_SXH.Enter
-        If I_SXH.Text = "0.00" Then
-            I_SXH.Clear()
-        End If
-        ' Cambia el color del texto a gris'
-        I_SXH.ForeColor = Color.Gray
-    End Sub
 
-    Private Sub I_SXH_Leave(sender As Object, e As EventArgs)
-        If String.IsNullOrWhiteSpace(I_SXH.Text) Then
-            I_SXH.Text = "0.00"
-        Else
-            ' Restablece el color del texto al color predeterminado (negro)'
-            I_SXH.ForeColor = Color.Black
+        ' Verifica si ya hay un punto decimal en el texto
+        If e.KeyChar = "." AndAlso I_SXH.Text.Contains(".") Then
+            e.Handled = True ' Evita agregar un segundo punto decimal
+        End If
+
+        ' Verifica si el carácter es un punto decimal y ya hay números antes
+        If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_SXH.Text) AndAlso Not I_SXH.Text.EndsWith(".") Then
+            ' Permite la entrada del punto decimal
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evita agregar un punto decimal al principio
         End If
     End Sub
-
 
     Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs) Handles I_SXH.Leave
         If I_SXH.Text.Equals("") Then
@@ -135,27 +130,78 @@ Class CalculoPlanilla
     End Sub
 
     Private Sub I_D1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D1.KeyPress
-        ' Verificar si la tecla presionada no es un caracter
+        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
-            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+            e.Handled = True ' Evita que el carácter se ingrese en el TextBox
         End If
 
+        ' Verifica si ya hay un punto decimal en el texto
+        If e.KeyChar = "." AndAlso I_D1.Text.Contains(".") Then
+            e.Handled = True ' Evita agregar un segundo punto decimal
+        End If
+
+        ' Verifica si el carácter es un punto decimal y ya hay números antes
+        If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_D1.Text) AndAlso Not I_D1.Text.EndsWith(".") Then
+            ' Permite la entrada del punto decimal
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evita agregar un punto decimal al principio
+        End If
     End Sub
 
     Private Sub I_D2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D2.KeyPress
-        ' Verificar si la tecla presionada no es un caracter
+        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
-            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+            e.Handled = True ' Evita que el carácter se ingrese en el TextBox
+        End If
+
+        ' Verifica si ya hay un punto decimal en el texto
+        If e.KeyChar = "." AndAlso I_D2.Text.Contains(".") Then
+            e.Handled = True ' Evita agregar un segundo punto decimal
+        End If
+
+        ' Verifica si el carácter es un punto decimal y ya hay números antes
+        If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_D2.Text) AndAlso Not I_D2.Text.EndsWith(".") Then
+            ' Permite la entrada del punto decimal
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evita agregar un punto decimal al principio
         End If
     End Sub
 
     Private Sub I_D3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D3.KeyPress
-        ' Verificar si la tecla presionada no es un caracter
+        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
+
+        ' Verifica si ya hay un punto decimal en el texto
+        If e.KeyChar = "." AndAlso I_D3.Text.Contains(".") Then
+            e.Handled = True ' Evita agregar un segundo punto decimal
+        End If
+
+        ' Verifica si el carácter es un punto decimal y ya hay números antes
+        If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_D3.Text) AndAlso Not I_D3.Text.EndsWith(".") Then
+            ' Permite la entrada del punto decimal
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evita agregar un punto decimal al principio
+        End If
     End Sub
 
+    Private Sub I_SXH_Enter(sender As Object, e As EventArgs) Handles I_SXH.Enter
+        If I_SXH.Text = "0.00" Then
+            I_SXH.Clear()
+        End If
+        ' Cambia el color del texto a gris'
+        I_SXH.ForeColor = Color.Gray
+    End Sub
+
+    Private Sub I_SXH_Leave(sender As Object, e As EventArgs) Handles I_SXH.Leave
+        If String.IsNullOrWhiteSpace(I_SXH.Text) Then
+            I_SXH.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_SXH.ForeColor = Color.Black
+        End If
+    End Sub
     Private Sub I_D1_Enter(sender As Object, e As EventArgs) Handles I_D1.Enter
         If I_D1.Text = "0.00" Then
             I_D1.Clear()
