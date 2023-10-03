@@ -41,9 +41,16 @@ Class CalculoPlanilla
 
         ' Verifica si el carácter es un punto decimal y ya hay números antes
         If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_SXH.Text) AndAlso Not I_SXH.Text.EndsWith(".") Then
-            ' Permite la entrada del punto decimal
         ElseIf e.KeyChar = "." Then
             e.Handled = True ' Evita agregar un punto decimal al principio
+        End If
+
+        ' Limita a dos números después del punto decimal
+        If I_SXH.Text.Contains(".") Then
+            Dim decimalPart As String = I_SXH.Text.Substring(I_SXH.Text.IndexOf(".") + 1)
+            If decimalPart.Length >= 2 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+                e.Handled = True ' Si ya hay dos números después del punto decimal, ignora la entrada adicional
+            End If
         End If
     End Sub
 
@@ -146,43 +153,57 @@ Class CalculoPlanilla
         ElseIf e.KeyChar = "." Then
             e.Handled = True ' Evita agregar un punto decimal al principio
         End If
+
+        ' Limitar a dos números después del punto decimal
+        If I_D1.Text.Contains(".") Then
+            Dim decimalPart As String = I_D1.Text.Substring(I_D1.Text.IndexOf(".") + 1)
+            If decimalPart.Length >= 2 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+                e.Handled = True ' Si ya hay dos números después del punto decimal, ignora la entrada adicional
+            End If
+        End If
     End Sub
 
     Private Sub I_D2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D2.KeyPress
-        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
-            e.Handled = True ' Evita que el carácter se ingrese en el TextBox
+            e.Handled = True
         End If
 
-        ' Verifica si ya hay un punto decimal en el texto
         If e.KeyChar = "." AndAlso I_D2.Text.Contains(".") Then
-            e.Handled = True ' Evita agregar un segundo punto decimal
+            e.Handled = True
         End If
 
-        ' Verifica si el carácter es un punto decimal y ya hay números antes
         If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_D2.Text) AndAlso Not I_D2.Text.EndsWith(".") Then
-            ' Permite la entrada del punto decimal
         ElseIf e.KeyChar = "." Then
-            e.Handled = True ' Evita agregar un punto decimal al principio
+            e.Handled = True
+        End If
+
+        If I_D2.Text.Contains(".") Then
+            Dim decimalPart As String = I_D2.Text.Substring(I_D2.Text.IndexOf(".") + 1)
+            If decimalPart.Length >= 2 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+                e.Handled = True
+            End If
         End If
     End Sub
 
     Private Sub I_D3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_D3.KeyPress
-        ' Verifica si la tecla presionada no es un dígito, Backspace o Delete
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
-            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+            e.Handled = True
         End If
 
-        ' Verifica si ya hay un punto decimal en el texto
         If e.KeyChar = "." AndAlso I_D3.Text.Contains(".") Then
-            e.Handled = True ' Evita agregar un segundo punto decimal
+            e.Handled = True
         End If
 
-        ' Verifica si el carácter es un punto decimal y ya hay números antes
         If e.KeyChar = "." AndAlso Not String.IsNullOrWhiteSpace(I_D3.Text) AndAlso Not I_D3.Text.EndsWith(".") Then
-            ' Permite la entrada del punto decimal
         ElseIf e.KeyChar = "." Then
-            e.Handled = True ' Evita agregar un punto decimal al principio
+            e.Handled = True
+        End If
+
+        If I_D3.Text.Contains(".") Then
+            Dim decimalPart As String = I_D3.Text.Substring(I_D3.Text.IndexOf(".") + 1)
+            If decimalPart.Length >= 2 AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+                e.Handled = True
+            End If
         End If
     End Sub
 
