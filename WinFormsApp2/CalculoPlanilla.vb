@@ -55,7 +55,13 @@ Class CalculoPlanilla
         End If
     End Sub
 
-    Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs)
+    Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs) Handles I_SXH.Leave
+        If String.IsNullOrWhiteSpace(I_SXH.Text) Then
+            I_SXH.Text = "0.00"
+        Else
+            ' Restablece el color del texto al color predeterminado (negro)'
+            I_SXH.ForeColor = Color.Black
+        End If
         If I_SXH.Text.Equals("") Then
             CalculoSalario.PropSalarioHora = 0
             I_SB.Text = CalculoSalario.CalcularSalarioBruto()
@@ -81,7 +87,7 @@ Class CalculoPlanilla
             e.Handled = True ' Evitar punto decimal
         End If
     End Sub
-    Private Sub I_HE_TextChanged(sender As Object, e As EventArgs) Handles I_HE.TextChanged
+    Private Sub I_HE_TextChanged(sender As Object, e As EventArgs) Handles I_HE.TextChanged, I_HE.Leave
         ' Verificar si el texto está vacio
         If I_HE.Text.Equals("") Then
             O_HE.Text = CalculoSalario.CalcularHorasExtras(0)
@@ -216,13 +222,8 @@ Class CalculoPlanilla
         I_SXH.ForeColor = Color.Gray
     End Sub
 
-    Private Sub I_SXH_Leave(sender As Object, e As EventArgs) Handles I_SXH.Leave
-        If String.IsNullOrWhiteSpace(I_SXH.Text) Then
-            I_SXH.Text = "0.00"
-        Else
-            ' Restablece el color del texto al color predeterminado (negro)'
-            I_SXH.ForeColor = Color.Black
-        End If
+    Private Sub I_SXH_Leave(sender As Object, e As EventArgs)
+
     End Sub
     Private Sub I_D1_Enter(sender As Object, e As EventArgs) Handles I_D1.Enter
         If I_D1.Text = "0.00" Then

@@ -966,6 +966,7 @@ Partial Class CalculoPlanilla
         Controls.Add(Label9)
         Controls.Add(Panel3)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "CalculoPlanilla"
         StartPosition = FormStartPosition.CenterScreen
