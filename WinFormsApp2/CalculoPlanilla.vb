@@ -1,4 +1,5 @@
-﻿Imports System.Reflection.Metadata
+﻿Imports System.Linq.Expressions
+Imports System.Reflection.Metadata
 Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
@@ -54,7 +55,7 @@ Class CalculoPlanilla
         End If
     End Sub
 
-    Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs) Handles I_SXH.Leave
+    Private Sub I_SXH_TextChanged(sender As Object, e As EventArgs)
         If I_SXH.Text.Equals("") Then
             CalculoSalario.PropSalarioHora = 0
             I_SB.Text = CalculoSalario.CalcularSalarioBruto()
@@ -325,15 +326,13 @@ Class CalculoPlanilla
 
     Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
         If RB_C_No.Checked Then
-            I_APELLIDO_C.Enabled = True
-
+            I_APELLIDO_C.Enabled = False
         End If
     End Sub
 
     Private Sub RB_C_Si_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_Si.CheckedChanged
         If RB_C_Si.Checked Then
             I_APELLIDO_C.Enabled = True
-
         End If
     End Sub
 
@@ -341,41 +340,44 @@ Class CalculoPlanilla
         If ComboBox1.Items.Count > 0 Then
             ComboBox1.SelectedIndex = 7   ' El primer item en el indice es 0 '
         End If
+        If Estado_C_CB.Items.Count > 0 Then
+            Estado_C_CB.SelectedIndex = 2   ' El primer item en el indice es 0 '
+        End If
+        If Mixta_CB.Items.Count > 0 Then
+            Mixta_CB.SelectedIndex = 0 ' El primer item en el indice es 0 '
+        End If
+        I_APELLIDO_C.Enabled = False
+        Estado_C_CB.Enabled = False
+        Mixta_CB.Enabled = False
     End Sub
 
-    Private Sub Label4_Click_1(sender As Object, e As EventArgs) Handles Label4.Click
-
+    Private Sub G_F_CheckedChanged(sender As Object, e As EventArgs) Handles G_F.CheckedChanged
+        If G_F.Checked Then
+            Estado_C_CB.Enabled = True
+        End If
     End Sub
 
-    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
-
+    Private Sub G_M_CheckedChanged(sender As Object, e As EventArgs) Handles G_M.CheckedChanged
+        If G_M.Checked Then
+            Estado_C_CB.Enabled = False
+        End If
     End Sub
 
-    Private Sub I_APELLIDO_C_TextChanged(sender As Object, e As EventArgs) Handles I_APELLIDO_C.TextChanged
-
+    Private Sub M_D_CheckedChanged(sender As Object, e As EventArgs) Handles M_D.CheckedChanged
+        If M_D.Checked Then
+            Mixta_CB.Enabled = False
+        End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+    Private Sub M_N_CheckedChanged(sender As Object, e As EventArgs) Handles M_N.CheckedChanged
+        If M_N.Checked Then
+            Mixta_CB.Enabled = False
+        End If
     End Sub
 
-    Private Sub O_SN_TextChanged(sender As Object, e As EventArgs) Handles O_SN.TextChanged
-
-    End Sub
-
-    Private Sub I_ASIENTO_TextChanged(sender As Object, e As EventArgs) Handles I_ASIENTO.TextChanged
-
-    End Sub
-
-    Private Sub I_SS_TextChanged(sender As Object, e As EventArgs) Handles I_SS.TextChanged
-
-    End Sub
-
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
-
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-
+    Private Sub M_M_CheckedChanged(sender As Object, e As EventArgs) Handles M_M.CheckedChanged
+        If M_M.Checked Then
+            Mixta_CB.Enabled = True
+        End If
     End Sub
 End Class

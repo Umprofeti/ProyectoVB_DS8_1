@@ -126,4 +126,32 @@
         resultado = Math.Round((CalcularSalarioBruto() - deducciones), 2)
         Return resultado
     End Function
+
+    Public Function CalcularHE_Nocturnas(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * ((salarioHora * 0.5) + salarioHora), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    Public Function CalcularHE_M_DN(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * ((salarioHora * 0.5) + salarioHora), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    Public Function CalcularHE_M_ND(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * ((salarioHora * 0.75) + salarioHora), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    Public Function CalcularHE_M_FN(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * ((salarioHora * 0.75) + salarioHora), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
 End Class
