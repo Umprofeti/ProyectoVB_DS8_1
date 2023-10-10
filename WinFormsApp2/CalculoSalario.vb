@@ -143,14 +143,164 @@
 
     Public Function CalcularHE_M_ND(cantHoras As Integer) As Double
         Dim resultado As Double
-        resultado = Math.Round(cantHoras * ((salarioHora * 0.75) + salarioHora), 2)
+        resultado = Math.Round(cantHoras * (salarioHora * 1.75), 2)
         PropHorasExtras = resultado
         Return resultado
     End Function
 
+    ' Mixta Fiesta Nacional o Duelo Nacional
     Public Function CalcularHE_M_FN(cantHoras As Integer) As Double
         Dim resultado As Double
-        resultado = Math.Round(cantHoras * ((salarioHora * 0.75) + salarioHora), 2)
+        resultado = Math.Round(cantHoras * (salarioHora * 2.5), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    ' Mixta Hora Domingo
+    Public Function CalcularHE_M_HD(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * 1.5), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+
+    ' Mixta Diurna con exceso de 3 Horas diarias ó 9 Semanales
+    Public Function CalcularHE_M_D_E_3_O_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.25 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    ' Mixta Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales
+    Public Function CalcularHE_M_N_E_3_O_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales
+    Public Function CalcularHE_M_DN_E_3_O_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales
+    Public Function CalcularHE_M_ND_E_3_O_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.75 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional ó Duelo Nacional Diurna
+    Public Function CalcularHE_M_FND(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.25)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional ó Duelo Nacional Nocturna
+    Public Function CalcularHE_M_FNN(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.5)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna
+    Public Function CalcularHE_M_FNDN(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.5)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna
+    Public Function CalcularHE_M_FNND(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_FND_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.25 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_FNN_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.55 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_FNDN_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_FNND_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (2.5 * 1.75 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Diurno
+    Public Function CalcularHE_M_DD(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.25)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Nocturno
+    Public Function CalcularHE_M_D_N(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.5)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno
+    Public Function CalcularHE_M_D_DN(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.5)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno
+    Public Function CalcularHE_M_D_ND(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_D_D_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.25 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_D_N_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_D_DN_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.5 * 1.75)), 2)
+        PropHorasExtras = resultado
+        Return resultado
+    End Function
+    'Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    Public Function CalcularHE_M_D_ND_E_3_9S(cantHoras As Integer) As Double
+        Dim resultado As Double
+        resultado = Math.Round(cantHoras * (salarioHora * (1.5 * 1.75 * 1.75)), 2)
         PropHorasExtras = resultado
         Return resultado
     End Function

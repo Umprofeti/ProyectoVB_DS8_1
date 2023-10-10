@@ -347,6 +347,7 @@ Class CalculoPlanilla
         If Mixta_CB.Items.Count > 0 Then
             Mixta_CB.SelectedIndex = 0 ' El primer item en el indice es 0 '
         End If
+        M_D.Checked = True
         I_APELLIDO_C.Enabled = False
         Estado_C_CB.Enabled = False
         Mixta_CB.Enabled = False
