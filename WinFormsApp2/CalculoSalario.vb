@@ -127,6 +127,7 @@
         Return resultado
     End Function
 
+    'Horas Extra Mixta: Diurna - Nocturna
     Public Function CalcularHE_Nocturnas(cantHoras As Integer) As Double
         Dim resultado As Double
         resultado = Math.Round(cantHoras * ((salarioHora * 0.5) + salarioHora), 2)
@@ -134,6 +135,7 @@
         Return resultado
     End Function
 
+    'Horas Extra Mixta: Nocturna - Diurna
     Public Function CalcularHE_M_DN(cantHoras As Integer) As Double
         Dim resultado As Double
         resultado = Math.Round(cantHoras * ((salarioHora * 0.5) + salarioHora), 2)
@@ -141,6 +143,7 @@
         Return resultado
     End Function
 
+    'Fiesta Nacional o Duelo Nacional
     Public Function CalcularHE_M_ND(cantHoras As Integer) As Double
         Dim resultado As Double
         resultado = Math.Round(cantHoras * (salarioHora * 1.75), 2)
@@ -304,4 +307,5 @@
         PropHorasExtras += resultado
         Return resultado
     End Function
+
 End Class

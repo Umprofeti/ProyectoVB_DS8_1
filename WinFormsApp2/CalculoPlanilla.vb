@@ -2,7 +2,7 @@
 Imports System.Reflection.Metadata
 Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
+Imports ProyectoDS8_1.CalculoSalario
 Class CalculoPlanilla
     Dim CalculoSalario As CalculoSalario = New CalculoSalario()
     Private Sub I_HT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_HT.KeyPress
@@ -328,6 +328,7 @@ Class CalculoPlanilla
     Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
         If RB_C_No.Checked Then
             I_APELLIDO_C.Enabled = False
+            I_APELLIDO_C.Clear()
         End If
     End Sub
 
@@ -361,7 +362,10 @@ Class CalculoPlanilla
 
     Private Sub G_M_CheckedChanged(sender As Object, e As EventArgs) Handles G_M.CheckedChanged
         If G_M.Checked Then
-            Estado_C_CB.Enabled = False
+            Estado_C_CB.Enabled = True
+            RB_C_Si.Enabled = False
+            RB_C_No.Enabled = False
+            I_APELLIDO_C.Enabled = False
         End If
     End Sub
 
@@ -380,6 +384,43 @@ Class CalculoPlanilla
     Private Sub M_M_CheckedChanged(sender As Object, e As EventArgs) Handles M_M.CheckedChanged
         If M_M.Checked Then
             Mixta_CB.Enabled = True
+        End If
+    End Sub
+
+    Private calculos As Dictionary(Of String, Func(Of Integer, Double)) = New Dictionary(Of String, Func(Of Integer, Double)) From {
+    {"Horas Extra Mixta: Diurna - Nocturna", AddressOf CalcularHE_Nocturnas},
+    {"Horas Extra Mixta: Nocturna - Diurna", AddressOf CalcularHE_M_DN},
+    {"Fiesta Nacional o Duelo Nacional", AddressOf CalcularHE_M_ND},
+    {"Mixta Hora Domingo", AddressOf CalcularHE_M_HD},
+    {"Horas Extra Diurna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_D_E_3_O_9S},
+    {"Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_N_E_3_O_9S},
+    {"Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_DN_E_3_O_9S},
+    {"Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_ND_E_3_O_9S},
+    {"Horas Extra Fiesta Nacional ó Duelo Nacional Diurna", AddressOf CalcularHE_M_FND},
+    {"Horas Extra Fiesta Nacional ó Duelo Nacional Nocturno", AddressOf CalcularHE_M_FNN},
+    {"Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna", AddressOf CalcularHE_M_FNDN},
+    {"Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna", AddressOf CalcularHE_M_FNND},
+    {"Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FND_E_3_9S},
+    {"Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNN_E_3_9S},
+    {"Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNDN_E_3_9S},
+    {"Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNND_E_3_9S},
+    {"Horas Extra Domingo ó Descanso Semanal Diurno", AddressOf CalcularHE_M_DD},
+    {"Horas Extra Domingo ó Descanso Semanal Nocturno", AddressOf CalcularHE_M_D_N},
+    {"Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno", AddressOf CalcularHE_M_D_DN},
+    {"Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno", AddressOf CalcularHE_M_D_ND},
+    {"Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_D_E_3_9S},
+    {"Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_N_E_3_9S},
+    {"Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_DN_E_3_9S},
+    {"Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_ND_E_3_9S}
+    }
+
+    Private Sub MixtaCB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MixtaCB.SelectedIndexChanged
+        Dim elementoSeleccionado As String = MixtaCB.SelectedItem.ToString()
+
+        If calculos.ContainsKey(elementoSeleccionado) Then
+            Dim cantidadHoras As Integer = 10 ' Cambia esto según la cantidad de horas que desees
+            ' Llama a la función de cálculo correspondiente y asigna el resultado a la propiedad PropHorasExtras
+            PropHorasExtras = calculos(elementoSeleccionado)(cantidadHoras)
         End If
     End Sub
 End Class
