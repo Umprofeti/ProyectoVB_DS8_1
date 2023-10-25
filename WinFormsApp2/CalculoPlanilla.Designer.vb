@@ -588,15 +588,15 @@ Partial Class CalculoPlanilla
         Panel1.Controls.Add(Label17)
         Panel1.Location = New Point(19, 495)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(459, 183)
+        Panel1.Size = New Size(459, 157)
         Panel1.TabIndex = 7
         ' 
         ' Button2
         ' 
         Button2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button2.Location = New Point(321, 122)
+        Button2.Location = New Point(327, 110)
         Button2.Name = "Button2"
-        Button2.Size = New Size(138, 58)
+        Button2.Size = New Size(112, 40)
         Button2.TabIndex = 64
         Button2.Text = "Registrar"
         Button2.UseVisualStyleBackColor = True
@@ -637,7 +637,7 @@ Partial Class CalculoPlanilla
         Label23.AutoSize = True
         Label23.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label23.ForeColor = SystemColors.ControlLightLight
-        Label23.Location = New Point(230, 67)
+        Label23.Location = New Point(230, 73)
         Label23.Name = "Label23"
         Label23.Size = New Size(26, 16)
         Label23.TabIndex = 60
@@ -689,10 +689,10 @@ Partial Class CalculoPlanilla
         ' 
         O_SN.Enabled = False
         O_SN.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        O_SN.Location = New Point(204, 151)
+        O_SN.Location = New Point(106, 131)
         O_SN.Name = "O_SN"
         O_SN.RightToLeft = RightToLeft.Yes
-        O_SN.Size = New Size(57, 22)
+        O_SN.Size = New Size(51, 22)
         O_SN.TabIndex = 55
         ' 
         ' Label20
@@ -700,7 +700,7 @@ Partial Class CalculoPlanilla
         Label20.AutoSize = True
         Label20.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label20.ForeColor = SystemColors.ControlLightLight
-        Label20.Location = New Point(184, 132)
+        Label20.Location = New Point(3, 134)
         Label20.Name = "Label20"
         Label20.Size = New Size(94, 16)
         Label20.TabIndex = 54
@@ -946,7 +946,7 @@ Partial Class CalculoPlanilla
         PanelButton.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         PanelButton.Location = New Point(255, 75)
         PanelButton.Name = "PanelButton"
-        PanelButton.Size = New Size(23, 22)
+        PanelButton.Size = New Size(22, 22)
         PanelButton.TabIndex = 40
         PanelButton.Text = "+"
         PanelButton.UseVisualStyleBackColor = False

@@ -387,40 +387,67 @@ Class CalculoPlanilla
         End If
     End Sub
 
-    Private calculos As Dictionary(Of String, Func(Of Integer, Double)) = New Dictionary(Of String, Func(Of Integer, Double)) From {
-    {"Horas Extra Mixta: Diurna - Nocturna", AddressOf CalcularHE_Nocturnas},
-    {"Horas Extra Mixta: Nocturna - Diurna", AddressOf CalcularHE_M_DN},
-    {"Fiesta Nacional o Duelo Nacional", AddressOf CalcularHE_M_ND},
-    {"Mixta Hora Domingo", AddressOf CalcularHE_M_HD},
-    {"Horas Extra Diurna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_D_E_3_O_9S},
-    {"Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_N_E_3_O_9S},
-    {"Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_DN_E_3_O_9S},
-    {"Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales", AddressOf CalcularHE_M_ND_E_3_O_9S},
-    {"Horas Extra Fiesta Nacional ó Duelo Nacional Diurna", AddressOf CalcularHE_M_FND},
-    {"Horas Extra Fiesta Nacional ó Duelo Nacional Nocturno", AddressOf CalcularHE_M_FNN},
-    {"Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna", AddressOf CalcularHE_M_FNDN},
-    {"Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna", AddressOf CalcularHE_M_FNND},
-    {"Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FND_E_3_9S},
-    {"Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNN_E_3_9S},
-    {"Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNDN_E_3_9S},
-    {"Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_FNND_E_3_9S},
-    {"Horas Extra Domingo ó Descanso Semanal Diurno", AddressOf CalcularHE_M_DD},
-    {"Horas Extra Domingo ó Descanso Semanal Nocturno", AddressOf CalcularHE_M_D_N},
-    {"Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno", AddressOf CalcularHE_M_D_DN},
-    {"Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno", AddressOf CalcularHE_M_D_ND},
-    {"Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_D_E_3_9S},
-    {"Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_N_E_3_9S},
-    {"Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_DN_E_3_9S},
-    {"Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", AddressOf CalcularHE_M_D_ND_E_3_9S}
-    }
+    Private Sub mixta_CB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Mixta_CB.SelectedIndexChanged
+        ' Obtiene la opción seleccionada en el ComboBox
+        Dim opcionSeleccionada As String = Mixta_CB.SelectedItem.ToString()
 
-    Private Sub MixtaCB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MixtaCB.SelectedIndexChanged
-        Dim elementoSeleccionado As String = MixtaCB.SelectedItem.ToString()
-
-        If calculos.ContainsKey(elementoSeleccionado) Then
-            Dim cantidadHoras As Integer = 10 ' Cambia esto según la cantidad de horas que desees
-            ' Llama a la función de cálculo correspondiente y asigna el resultado a la propiedad PropHorasExtras
-            PropHorasExtras = calculos(elementoSeleccionado)(cantidadHoras)
-        End If
+        ' Verifica la opción seleccionada y llama a la función correspondiente
+        Dim cantidadHoras As Integer
+        Dim resultado As Double
+        Dim calculo As New CalculoSalario()
+        Select Case opcionSeleccionada
+            Case "Horas Extra Mixta: Diurna - Nocturna"
+                resultado = calculo.CalcularHE_Nocturnas(cantidadHoras)
+            Case "Horas Extra Mixta: Nocturna - Diurna"
+                resultado = calculo.CalcularHE_M_DN(cantidadHoras)
+            Case "Fiesta Nacional o Duelo Nacional"
+                resultado = calculo.CalcularHE_M_ND(cantidadHoras)
+            Case "Mixta Fiesta Nacional o Duelo Nacional"
+                resultado = calculo.CalcularHE_M_FN(cantidadHoras)
+            Case "Mixta Hora Domingo"
+                resultado = calculo.CalcularHE_M_HD(cantidadHoras)
+            Case "Mixta Diurna con exceso de 3 Horas diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_D_E_3_O_9S(cantidadHoras)
+            Case "Mixta Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_N_E_3_O_9S(cantidadHoras)
+            Case "Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_DN_E_3_O_9S(cantidadHoras)
+            Case "Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_ND_E_3_O_9S(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional ó Duelo Nacional Diurna"
+                resultado = calculo.CalcularHE_M_FND(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional ó Duelo Nacional Nocturna"
+                resultado = calculo.CalcularHE_M_FNN(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional o Duelo Nacional - Mixto: Diurna - Nocturna"
+                resultado = calculo.CalcularHE_M_FNDN(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional o Duelo Nacional - Mixto Nocturna - Diurna"
+                resultado = calculo.CalcularHE_M_FNND(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_FND_E_3_9S(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_FNN_E_3_9S(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_FNDN_E_3_9S(cantidadHoras)
+            Case "Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_FNND_E_3_9S(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Diurno"
+                resultado = calculo.CalcularHE_M_DD(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Nocturno"
+                resultado = calculo.CalcularHE_M_D_N(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno"
+                resultado = calculo.CalcularHE_M_D_DN(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurna"
+                resultado = calculo.CalcularHE_M_D_ND(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_D_D_E_3_9S(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_D_N_E_3_9S(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_D_DN_E_3_9S(cantidadHoras)
+            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
+                resultado = calculo.CalcularHE_M_D_ND_E_3_9S(cantidadHoras)
+        End Select
+        calculo.PropHorasExtras = resultado
     End Sub
+
 End Class
