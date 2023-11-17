@@ -1,11 +1,6 @@
-﻿Imports System.Linq.Expressions
-Imports System.Reflection.Metadata
-Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
+﻿Imports System.Reflection.Metadata
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports MySql.Data.MySqlClient
-Imports Org.BouncyCastle.Asn1
-Imports ProyectoDS8_1.CalculoSalario
-Imports ProyectoDS8_1.ConexionBD
 Class CalculoPlanilla
     Dim CalculoSalario As CalculoSalario = New CalculoSalario()
     Private Sub I_HT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_HT.KeyPress
@@ -351,10 +346,14 @@ Class CalculoPlanilla
         If Mixta_CB.Items.Count > 0 Then
             Mixta_CB.SelectedIndex = 0 ' El primer item en el indice es 0 '
         End If
+        If Mixta_CB_2.Items.Count > 0 Then
+            Mixta_CB_2.SelectedIndex = 0 ' El primer item en el indice es 0 '
+        End If
         M_D.Checked = True
         I_APELLIDO_C.Enabled = False
         Estado_C_CB.Enabled = True ' Habilita el ComboBox de estado civil
         Mixta_CB.Enabled = False
+        Mixta_CB_2.Enabled = False
         RB_C_Si.Enabled = True
         RB_C_No.Enabled = True
     End Sub
@@ -383,89 +382,129 @@ Class CalculoPlanilla
 
     Private Sub M_D_CheckedChanged(sender As Object, e As EventArgs) Handles M_D.CheckedChanged
         If M_D.Checked Then
-            Mixta_CB.Enabled = False
+            If I_HE.Text().Equals("") Then
+                O_HE.Text = CalculoSalario.CalcularHorasExtras(Integer.Parse(0))
+            Else
+                O_HE.Text = CalculoSalario.CalcularHorasExtras(Integer.Parse(I_HE.Text))
+                O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+            End If
         End If
     End Sub
 
+
     Private Sub M_N_CheckedChanged(sender As Object, e As EventArgs) Handles M_N.CheckedChanged
         If M_N.Checked Then
-            Mixta_CB.Enabled = False
+            If I_HE.Text().Equals("") Then
+                O_HE.Text = CalculoSalario.CalcularHE_Nocturnas(Integer.Parse(0))
+            Else
+                O_HE.Text = CalculoSalario.CalcularHE_Nocturnas(Integer.Parse(I_HE.Text))
+                O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+            End If
         End If
     End Sub
+
 
     Private Sub M_M_CheckedChanged(sender As Object, e As EventArgs) Handles M_M.CheckedChanged
         If M_M.Checked Then
             Mixta_CB.Enabled = True
+            hextra2.Enabled = True
+            hextra3.Enabled = True
+            Mixta_CB_2.Enabled = True
+        Else
+            Mixta_CB.Enabled = False
+            hextra2.Enabled = False
+            hextra3.Enabled = False
+            Mixta_CB_2.Enabled = False
         End If
     End Sub
 
-    Private Sub mixta_CB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Mixta_CB.SelectedIndexChanged
-        ' Obtiene la opción seleccionada en el ComboBox
-        Dim opcionSeleccionada As String = Mixta_CB.SelectedItem.ToString()
-
-        ' Verifica la opción seleccionada y llama a la función correspondiente
-        Dim cantidadHoras As Integer
-        Dim resultado As Double
-        Dim calculo As New CalculoSalario()
-        Select Case opcionSeleccionada
-            Case "Horas Extra Mixta: Diurna - Nocturna"
-                resultado = calculo.CalcularHE_Nocturnas(cantidadHoras)
-            Case "Horas Extra Mixta: Nocturna - Diurna"
-                resultado = calculo.CalcularHE_M_DN(cantidadHoras)
-            Case "Fiesta Nacional o Duelo Nacional"
-                resultado = calculo.CalcularHE_M_ND(cantidadHoras)
-            Case "Mixta Fiesta Nacional o Duelo Nacional"
-                resultado = calculo.CalcularHE_M_FN(cantidadHoras)
-            Case "Mixta Hora Domingo"
-                resultado = calculo.CalcularHE_M_HD(cantidadHoras)
-            Case "Mixta Diurna con exceso de 3 Horas diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_D_E_3_O_9S(cantidadHoras)
-            Case "Mixta Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_N_E_3_O_9S(cantidadHoras)
-            Case "Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_DN_E_3_O_9S(cantidadHoras)
-            Case "Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_ND_E_3_O_9S(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional ó Duelo Nacional Diurna"
-                resultado = calculo.CalcularHE_M_FND(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional ó Duelo Nacional Nocturna"
-                resultado = calculo.CalcularHE_M_FNN(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional o Duelo Nacional - Mixto: Diurna - Nocturna"
-                resultado = calculo.CalcularHE_M_FNDN(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional o Duelo Nacional - Mixto Nocturna - Diurna"
-                resultado = calculo.CalcularHE_M_FNND(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_FND_E_3_9S(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_FNN_E_3_9S(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_FNDN_E_3_9S(cantidadHoras)
-            Case "Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_FNND_E_3_9S(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Diurno"
-                resultado = calculo.CalcularHE_M_DD(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Nocturno"
-                resultado = calculo.CalcularHE_M_D_N(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno"
-                resultado = calculo.CalcularHE_M_D_DN(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurna"
-                resultado = calculo.CalcularHE_M_D_ND(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_D_D_E_3_9S(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_D_N_E_3_9S(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_D_DN_E_3_9S(cantidadHoras)
-            Case "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"
-                resultado = calculo.CalcularHE_M_D_ND_E_3_9S(cantidadHoras)
+    Sub AsingHE_M(Mode As Integer, Horas As Integer, Textbox As Windows.Forms.TextBox)
+        Select Case Mode
+            Case 0
+                Textbox.Text = CalculoSalario.CalcularHE_M_DN(Horas)
+            Case 1
+                Textbox.Text = CalculoSalario.CalcularHE_M_ND(Horas)
+            Case 2
+                Textbox.Text = CalculoSalario.CalcularHE_M_FN(Horas)
+            Case 3
+                Textbox.Text = CalculoSalario.CalcularHE_M_HD(Horas)
+            Case 4
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_E_3_O_9S(Horas)
+            Case 5
+                Textbox.Text = CalculoSalario.CalcularHE_M_N_E_3_O_9S(Horas)
+            Case 6
+                Textbox.Text = CalculoSalario.CalcularHE_M_DN_E_3_O_9S(Horas)
+            Case 7
+                Textbox.Text = CalculoSalario.CalcularHE_M_ND_E_3_O_9S(Horas)
+            Case 8
+                Textbox.Text = CalculoSalario.CalcularHE_M_FND(Horas)
+            Case 9
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNN(Horas)
+            Case 10
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNDN(Horas)
+            Case 11
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNND(Horas)
+            Case 12
+                Textbox.Text = CalculoSalario.CalcularHE_M_FND_E_3_9S(Horas)
+            Case 13
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNN_E_3_9S(Horas)
+            Case 14
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNDN_E_3_9S(Horas)
+            Case 15
+                Textbox.Text = CalculoSalario.CalcularHE_M_FNND_E_3_9S(Horas)
+            Case 16
+                Textbox.Text = CalculoSalario.CalcularHE_M_DD(Horas)
+            Case 17
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_N(Horas)
+            Case 18
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_DN(Horas)
+            Case 19
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_ND(Horas)
+            Case 20
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_D_E_3_9S(Horas)
+            Case 21
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_N_E_3_9S(Horas)
+            Case 22
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_DN_E_3_9S(Horas)
+            Case 23
+                Textbox.Text = CalculoSalario.CalcularHE_M_D_ND_E_3_9S(Horas)
         End Select
-        calculo.PropHorasExtras = resultado
+    End Sub
+
+    Private Sub Mixta_CB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles hextra2.TextChanged, Mixta_CB.SelectedValueChanged, hextra2.Leave
+        If hextra2.Text().Equals("") Then
+            AsingHE_M(Mixta_CB.SelectedIndex(), 0, mhextra2)
+        Else
+            AsingHE_M(Mixta_CB.SelectedIndex(), hextra2.Text(), mhextra2)
+            CalculoSalario.HE_2(mhextra2.Text())
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_ISR.Text = CalculoSalario.CalcularIR()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        End If
+    End Sub
+
+    Private Sub Mixta_CB_2_SelectedValueChanged(sender As Object, e As EventArgs) Handles Mixta_CB_2.SelectedValueChanged, hextra3.TextChanged, hextra3.Leave
+        If hextra3.Text().Equals("") Then
+            AsingHE_M(Mixta_CB_2.SelectedIndex(), 0, mhextra3)
+        Else
+            AsingHE_M(Mixta_CB_2.SelectedIndex(), hextra3.Text(), mhextra3)
+            CalculoSalario.HE_3(mhextra3.Text())
+            I_SB.Text = CalculoSalario.CalcularSalarioBruto()
+            I_SS.Text = CalculoSalario.CalcularSS()
+            I_ISR.Text = CalculoSalario.CalcularIR()
+            I_SE.Text = CalculoSalario.CalcularSE()
+            O_SN.Text = CalculoSalario.CalcularSalarioNeto()
+        End If
     End Sub
 
     Private Sub rgt_btn_Click(sender As Object, e As EventArgs) Handles rgt_btn.Click
         ' Declara las variables para almacenar los valores de los controles
         Dim pref, tomo, asi, ced, nom1, nom2, ape1, ape2, est_c, ap_c, genero, u_a_c As String
-        Dim htrab, sxh, s_soc, s_edu, imp_r, h_extra, desc1, desc2, desc3 As String
+        Dim htrab, t_extra1, m_extra1, sxh, s_soc, s_edu, imp_r, h_extra, desc1, desc2, desc3 As String
+        Dim t_extra2, m_extra2, h_extra2, t_extra3, m_extra3, h_extra3 As String
 
         ' Asigna los valores de los controles a las variables
         pref = I_PREF.Text
@@ -483,12 +522,30 @@ Class CalculoPlanilla
         s_soc = I_SS.Text
         s_edu = I_SE.Text
         imp_r = I_ISR.Text
-        h_extra = O_HE.Text
+        h_extra = I_HE.Text
+        m_extra1 = O_HE.Text
+        t_extra1 = "24"
+        ' Horas extras
+        t_extra2 = Mixta_CB.SelectedIndex()
+        m_extra2 = mhextra2.Text()
+        h_extra2 = hextra2.Text()
+
+        t_extra3 = Mixta_CB_2.SelectedIndex()
+        m_extra3 = mhextra3.Text()
+        h_extra3 = hextra3.Text()
 
         ' Descuentos
         desc1 = O_D1.Text
         desc2 = O_D2.Text
         desc3 = O_D3.Text
+
+        'Asingar valor a el tipo de hora extra 1 de acuerdo a la modalidad seleccionada
+        If M_D.Checked() Then
+            t_extra1 = "24"
+        End If
+        If M_N.Checked() Then
+            t_extra1 = "25"
+        End If
 
         ' Maneja la selección del estado civil
         If Estado_C_CB.SelectedIndex <> -1 Then
@@ -533,8 +590,8 @@ Class CalculoPlanilla
         ced = pref + "-" + tomo + "-" + asi
 
         ' Construye la consulta SQL INSERT
-        Dim consulta As String = "INSERT INTO generales (prefijo, tomo, asiento, cedula, nombre1, nombre2, apellido1, apellido2, estado_civil, apellido_casada, genero, usa_apellido_casada, htrabajadas, shora, hextra1, seguro_social, seguro_educativo, impuesto_renta, descuento1, descuento2, descuento3) 
-    VALUES (@Pref, @Tomo, @Asiento, @Cedula, @Nombre1, @Nombre2, @Apellido1, @Apellido2, @estado_civil, @apellido_casada, @genero, @usa_apellido_casada, @htrabajadas, @shora, @hextra1, @seguro_social, @seguro_educativo, @impuesto_renta, @descuento1, @descuento2, @descuento3)"
+        Dim consulta As String = "INSERT INTO generales (prefijo, tomo, asiento, cedula, nombre1, nombre2, apellido1, apellido2, estado_civil, apellido_casada, genero, usa_apellido_casada, htrabajadas, shora, thextra1 ,hextra1, mhextra1, thextra2, hextra2, mhextra2, thextra3, hextra3, mhextra3, seguro_social, seguro_educativo, impuesto_renta, descuento1, descuento2, descuento3) 
+    VALUES (@Pref, @Tomo, @Asiento, @Cedula, @Nombre1, @Nombre2, @Apellido1, @Apellido2, @estado_civil, @apellido_casada, @genero, @usa_apellido_casada, @htrabajadas, @shora, @thextra1 ,@hextra1, @mhextra1, @thextra2, @hextra2, @mhextra2, @thextra3, @hextra3, @mhextra3, @seguro_social, @seguro_educativo, @impuesto_renta, @descuento1, @descuento2, @descuento3)"
 
         Try
             Using conn As MySqlConnection = ConexionBD.ObtenerConexion()
@@ -557,7 +614,15 @@ Class CalculoPlanilla
                 command.Parameters.AddWithValue("@usa_apellido_casada", u_a_c)
                 command.Parameters.AddWithValue("@htrabajadas", htrab)
                 command.Parameters.AddWithValue("@shora", sxh)
+                command.Parameters.AddWithValue("@thextra1", t_extra1)
                 command.Parameters.AddWithValue("@hextra1", h_extra)
+                command.Parameters.AddWithValue("@mhextra1", m_extra1)
+                command.Parameters.AddWithValue("@thextra2", t_extra2)
+                command.Parameters.AddWithValue("@hextra2", h_extra2)
+                command.Parameters.AddWithValue("@mhextra2", m_extra2)
+                command.Parameters.AddWithValue("@thextra3", t_extra3)
+                command.Parameters.AddWithValue("@hextra3", h_extra3)
+                command.Parameters.AddWithValue("@mhextra3", m_extra3)
                 command.Parameters.AddWithValue("@seguro_social", s_soc)
                 command.Parameters.AddWithValue("@seguro_educativo", s_edu)
                 command.Parameters.AddWithValue("@impuesto_renta", imp_r)
@@ -571,7 +636,7 @@ Class CalculoPlanilla
                 MessageBox.Show("Registros insertados correctamente.", "Éxito!")
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error al insertar el registros: " & ex.Message, "Error")
+            MessageBox.Show("Error al insertar el registros: " & ex.Message, "Codigo de Error: " & ex.HResult)
         End Try
     End Sub
 End Class

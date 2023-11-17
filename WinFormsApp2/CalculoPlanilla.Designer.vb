@@ -74,8 +74,8 @@ Partial Class CalculoPlanilla
         O_HE = New TextBox()
         Label21 = New Label()
         O_SN = New TextBox()
-        Label20 = New Label()
         I_ISR = New TextBox()
+        Label20 = New Label()
         Label19 = New Label()
         I_SE = New TextBox()
         Label16 = New Label()
@@ -93,18 +93,28 @@ Partial Class CalculoPlanilla
         Label31 = New Label()
         M_D = New RadioButton()
         M_N = New RadioButton()
-        M_M = New RadioButton()
         Mixta_CB = New ComboBox()
         Label32 = New Label()
-        PanelButton = New Button()
         Panel4 = New Panel()
+        mhextra2 = New TextBox()
+        Label33 = New Label()
+        hextra2 = New TextBox()
         Panel5 = New Panel()
+        Panel6 = New Panel()
+        mhextra3 = New TextBox()
+        Label34 = New Label()
+        hextra3 = New TextBox()
+        Label35 = New Label()
+        Mixta_CB_2 = New ComboBox()
+        Label36 = New Label()
+        M_M = New CheckBox()
         Panel.SuspendLayout()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         Panel5.SuspendLayout()
+        Panel6.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label3
@@ -165,7 +175,7 @@ Partial Class CalculoPlanilla
         Label12.AutoSize = True
         Label12.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label12.ForeColor = SystemColors.ButtonFace
-        Label12.Location = New Point(362, 15)
+        Label12.Location = New Point(245, 15)
         Label12.Name = "Label12"
         Label12.Size = New Size(93, 16)
         Label12.TabIndex = 22
@@ -176,7 +186,7 @@ Partial Class CalculoPlanilla
         Label13.AutoSize = True
         Label13.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label13.ForeColor = SystemColors.ButtonFace
-        Label13.Location = New Point(363, 44)
+        Label13.Location = New Point(245, 45)
         Label13.Name = "Label13"
         Label13.Size = New Size(93, 16)
         Label13.TabIndex = 23
@@ -187,7 +197,7 @@ Partial Class CalculoPlanilla
         Label14.AutoSize = True
         Label14.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label14.ForeColor = SystemColors.ButtonFace
-        Label14.Location = New Point(362, 75)
+        Label14.Location = New Point(245, 75)
         Label14.Name = "Label14"
         Label14.Size = New Size(93, 16)
         Label14.TabIndex = 24
@@ -199,14 +209,14 @@ Partial Class CalculoPlanilla
         I_HT.Location = New Point(138, 15)
         I_HT.Name = "I_HT"
         I_HT.RightToLeft = RightToLeft.Yes
-        I_HT.Size = New Size(100, 22)
+        I_HT.Size = New Size(86, 22)
         I_HT.TabIndex = 0
         ' 
         ' I_D1
         ' 
         I_D1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_D1.ForeColor = Color.Gray
-        I_D1.Location = New Point(461, 75)
+        I_D1.Location = New Point(344, 72)
         I_D1.Name = "I_D1"
         I_D1.RightToLeft = RightToLeft.Yes
         I_D1.Size = New Size(100, 22)
@@ -220,7 +230,7 @@ Partial Class CalculoPlanilla
         I_SXH.Location = New Point(138, 45)
         I_SXH.Name = "I_SXH"
         I_SXH.RightToLeft = RightToLeft.Yes
-        I_SXH.Size = New Size(100, 22)
+        I_SXH.Size = New Size(86, 22)
         I_SXH.TabIndex = 1
         I_SXH.Text = "0.00"
         ' 
@@ -230,14 +240,14 @@ Partial Class CalculoPlanilla
         I_HE.Location = New Point(138, 75)
         I_HE.Name = "I_HE"
         I_HE.RightToLeft = RightToLeft.Yes
-        I_HE.Size = New Size(100, 22)
+        I_HE.Size = New Size(86, 22)
         I_HE.TabIndex = 2
         ' 
         ' I_D3
         ' 
         I_D3.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_D3.ForeColor = Color.Gray
-        I_D3.Location = New Point(461, 45)
+        I_D3.Location = New Point(344, 42)
         I_D3.Name = "I_D3"
         I_D3.RightToLeft = RightToLeft.Yes
         I_D3.Size = New Size(100, 22)
@@ -248,7 +258,7 @@ Partial Class CalculoPlanilla
         ' 
         I_D2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         I_D2.ForeColor = Color.Gray
-        I_D2.Location = New Point(461, 12)
+        I_D2.Location = New Point(344, 15)
         I_D2.Name = "I_D2"
         I_D2.RightToLeft = RightToLeft.Yes
         I_D2.Size = New Size(100, 22)
@@ -261,7 +271,7 @@ Partial Class CalculoPlanilla
         Label18.BackColor = Color.Transparent
         Label18.Font = New Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label18.ForeColor = SystemColors.ControlLightLight
-        Label18.Location = New Point(492, 221)
+        Label18.Location = New Point(507, 60)
         Label18.Name = "Label18"
         Label18.Size = New Size(103, 25)
         Label18.TabIndex = 6
@@ -365,7 +375,7 @@ Partial Class CalculoPlanilla
         ' Label28
         ' 
         Label28.AutoSize = True
-        Label28.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        Label28.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label28.ForeColor = SystemColors.ControlLightLight
         Label28.Location = New Point(220, 28)
         Label28.Name = "Label28"
@@ -376,7 +386,7 @@ Partial Class CalculoPlanilla
         ' Label27
         ' 
         Label27.AutoSize = True
-        Label27.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        Label27.Font = New Font("Segoe UI", 18.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label27.ForeColor = SystemColors.ControlLightLight
         Label27.Location = New Point(85, 28)
         Label27.Name = "Label27"
@@ -577,8 +587,8 @@ Partial Class CalculoPlanilla
         Panel1.Controls.Add(O_HE)
         Panel1.Controls.Add(Label21)
         Panel1.Controls.Add(O_SN)
-        Panel1.Controls.Add(Label20)
         Panel1.Controls.Add(I_ISR)
+        Panel1.Controls.Add(Label20)
         Panel1.Controls.Add(Label19)
         Panel1.Controls.Add(I_SE)
         Panel1.Controls.Add(Label16)
@@ -586,15 +596,15 @@ Partial Class CalculoPlanilla
         Panel1.Controls.Add(Label15)
         Panel1.Controls.Add(I_SB)
         Panel1.Controls.Add(Label17)
-        Panel1.Location = New Point(19, 495)
+        Panel1.Location = New Point(495, 126)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(459, 157)
+        Panel1.Size = New Size(548, 146)
         Panel1.TabIndex = 7
         ' 
         ' rgt_btn
         ' 
         rgt_btn.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        rgt_btn.Location = New Point(327, 110)
+        rgt_btn.Location = New Point(374, 59)
         rgt_btn.Name = "rgt_btn"
         rgt_btn.Size = New Size(112, 40)
         rgt_btn.TabIndex = 64
@@ -689,22 +699,11 @@ Partial Class CalculoPlanilla
         ' 
         O_SN.Enabled = False
         O_SN.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        O_SN.Location = New Point(106, 131)
+        O_SN.Location = New Point(427, 15)
         O_SN.Name = "O_SN"
         O_SN.RightToLeft = RightToLeft.Yes
-        O_SN.Size = New Size(51, 22)
+        O_SN.Size = New Size(83, 22)
         O_SN.TabIndex = 55
-        ' 
-        ' Label20
-        ' 
-        Label20.AutoSize = True
-        Label20.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label20.ForeColor = SystemColors.ControlLightLight
-        Label20.Location = New Point(3, 134)
-        Label20.Name = "Label20"
-        Label20.Size = New Size(94, 16)
-        Label20.TabIndex = 54
-        Label20.Text = "Salario Neto"
         ' 
         ' I_ISR
         ' 
@@ -715,6 +714,17 @@ Partial Class CalculoPlanilla
         I_ISR.RightToLeft = RightToLeft.Yes
         I_ISR.Size = New Size(51, 22)
         I_ISR.TabIndex = 52
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.ForeColor = SystemColors.ControlLightLight
+        Label20.Location = New Point(327, 19)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(94, 16)
+        Label20.TabIndex = 54
+        Label20.Text = "Salario Neto"
         ' 
         ' Label19
         ' 
@@ -808,7 +818,7 @@ Partial Class CalculoPlanilla
         Label26.BackColor = Color.Transparent
         Label26.Font = New Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label26.ForeColor = SystemColors.ControlLightLight
-        Label26.Location = New Point(500, 62)
+        Label26.Location = New Point(19, 482)
         Label26.Name = "Label26"
         Label26.Size = New Size(224, 25)
         Label26.TabIndex = 27
@@ -853,7 +863,7 @@ Partial Class CalculoPlanilla
         Panel3.BackColor = Color.FromArgb(CByte(239), CByte(63), CByte(83))
         Panel3.Controls.Add(PictureBox1)
         Panel3.Controls.Add(Label25)
-        Panel3.Controls.Add(Label26)
+        Panel3.Controls.Add(Label18)
         Panel3.Location = New Point(-5, 0)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1226, 87)
@@ -862,7 +872,7 @@ Partial Class CalculoPlanilla
         ' Panel2
         ' 
         Panel2.BackColor = Color.FromArgb(CByte(239), CByte(63), CByte(83))
-        Panel2.Location = New Point(-2, 684)
+        Panel2.Location = New Point(-2, 646)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(1223, 26)
         Panel2.TabIndex = 32
@@ -872,7 +882,7 @@ Partial Class CalculoPlanilla
         Label31.AutoSize = True
         Label31.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         Label31.ForeColor = SystemColors.ControlLightLight
-        Label31.Location = New Point(495, 254)
+        Label31.Location = New Point(495, 98)
         Label31.Name = "Label31"
         Label31.Size = New Size(81, 16)
         Label31.TabIndex = 34
@@ -883,7 +893,7 @@ Partial Class CalculoPlanilla
         M_D.AutoSize = True
         M_D.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         M_D.ForeColor = SystemColors.ControlLightLight
-        M_D.Location = New Point(581, 252)
+        M_D.Location = New Point(589, 96)
         M_D.Name = "M_D"
         M_D.Size = New Size(70, 20)
         M_D.TabIndex = 35
@@ -896,26 +906,13 @@ Partial Class CalculoPlanilla
         M_N.AutoSize = True
         M_N.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
         M_N.ForeColor = SystemColors.ControlLightLight
-        M_N.Location = New Point(657, 253)
+        M_N.Location = New Point(664, 96)
         M_N.Name = "M_N"
         M_N.Size = New Size(87, 20)
         M_N.TabIndex = 36
         M_N.TabStop = True
         M_N.Text = "Nocturna"
         M_N.UseVisualStyleBackColor = True
-        ' 
-        ' M_M
-        ' 
-        M_M.AutoSize = True
-        M_M.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        M_M.ForeColor = SystemColors.ControlLightLight
-        M_M.Location = New Point(750, 254)
-        M_M.Name = "M_M"
-        M_M.Size = New Size(61, 20)
-        M_M.TabIndex = 37
-        M_M.TabStop = True
-        M_M.Text = "Mixta"
-        M_M.UseVisualStyleBackColor = True
         ' 
         ' Mixta_CB
         ' 
@@ -925,7 +922,7 @@ Partial Class CalculoPlanilla
         Mixta_CB.Items.AddRange(New Object() {"Horas Extra Mixta: Diurna - Nocturna", "Horas Extra Mixta: Nocturna - Diurna", "Fiesta Nacional o Duelo Nacional", "Hora Domingo o Descanso Semanal", "Horas Extra Diurna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Fiesta Nacional ó Duelo Nacional Diurna", "Horas Extra Fiesta Nacional ó Duelo Nacional Nocturno", "Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna", "Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna", "Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Diurno", "Horas Extra Domingo ó Descanso Semanal Nocturno", "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno", "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno", "Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"})
         Mixta_CB.Location = New Point(4, 33)
         Mixta_CB.Name = "Mixta_CB"
-        Mixta_CB.Size = New Size(519, 24)
+        Mixta_CB.Size = New Size(581, 24)
         Mixta_CB.TabIndex = 38
         ' 
         ' Label32
@@ -939,34 +936,54 @@ Partial Class CalculoPlanilla
         Label32.TabIndex = 39
         Label32.Text = "Modalidad Mixta"
         ' 
-        ' PanelButton
-        ' 
-        PanelButton.BackColor = Color.LightGreen
-        PanelButton.BackgroundImageLayout = ImageLayout.Center
-        PanelButton.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        PanelButton.Location = New Point(255, 75)
-        PanelButton.Name = "PanelButton"
-        PanelButton.Size = New Size(22, 22)
-        PanelButton.TabIndex = 40
-        PanelButton.Text = "+"
-        PanelButton.UseVisualStyleBackColor = False
-        ' 
         ' Panel4
         ' 
         Panel4.BackColor = Color.FromArgb(CByte(79), CByte(78), CByte(93))
+        Panel4.Controls.Add(mhextra2)
+        Panel4.Controls.Add(Label33)
+        Panel4.Controls.Add(hextra2)
         Panel4.Controls.Add(Label32)
         Panel4.Controls.Add(Mixta_CB)
-        Panel4.Location = New Point(498, 282)
+        Panel4.Location = New Point(495, 318)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(679, 90)
+        Panel4.Size = New Size(719, 75)
         Panel4.TabIndex = 41
+        ' 
+        ' mhextra2
+        ' 
+        mhextra2.Enabled = False
+        mhextra2.Location = New Point(646, 33)
+        mhextra2.Name = "mhextra2"
+        mhextra2.Size = New Size(62, 23)
+        mhextra2.TabIndex = 42
+        mhextra2.Text = "0"
+        ' 
+        ' Label33
+        ' 
+        Label33.AutoSize = True
+        Label33.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label33.ForeColor = SystemColors.ControlLightLight
+        Label33.Location = New Point(591, 14)
+        Label33.Name = "Label33"
+        Label33.Size = New Size(49, 16)
+        Label33.TabIndex = 41
+        Label33.Text = "Horas"
+        ' 
+        ' hextra2
+        ' 
+        hextra2.Enabled = False
+        hextra2.Location = New Point(591, 33)
+        hextra2.Name = "hextra2"
+        hextra2.Size = New Size(49, 23)
+        hextra2.TabIndex = 40
+        hextra2.Text = "0"
+        hextra2.TextAlign = HorizontalAlignment.Right
         ' 
         ' Panel5
         ' 
         Panel5.BackColor = Color.FromArgb(CByte(79), CByte(78), CByte(93))
         Panel5.Controls.Add(Label9)
         Panel5.Controls.Add(Label10)
-        Panel5.Controls.Add(PanelButton)
         Panel5.Controls.Add(Label12)
         Panel5.Controls.Add(Label11)
         Panel5.Controls.Add(Label13)
@@ -977,20 +994,111 @@ Partial Class CalculoPlanilla
         Panel5.Controls.Add(I_SXH)
         Panel5.Controls.Add(I_D3)
         Panel5.Controls.Add(I_D2)
-        Panel5.Location = New Point(495, 100)
+        Panel5.Location = New Point(19, 510)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(682, 113)
+        Panel5.Size = New Size(459, 113)
         Panel5.TabIndex = 42
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.FromArgb(CByte(79), CByte(78), CByte(93))
+        Panel6.Controls.Add(mhextra3)
+        Panel6.Controls.Add(Label34)
+        Panel6.Controls.Add(hextra3)
+        Panel6.Controls.Add(Label35)
+        Panel6.Controls.Add(Mixta_CB_2)
+        Panel6.Location = New Point(495, 407)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(719, 75)
+        Panel6.TabIndex = 43
+        ' 
+        ' mhextra3
+        ' 
+        mhextra3.Enabled = False
+        mhextra3.Location = New Point(646, 33)
+        mhextra3.Name = "mhextra3"
+        mhextra3.Size = New Size(62, 23)
+        mhextra3.TabIndex = 42
+        mhextra3.Text = "0"
+        ' 
+        ' Label34
+        ' 
+        Label34.AutoSize = True
+        Label34.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label34.ForeColor = SystemColors.ControlLightLight
+        Label34.Location = New Point(591, 14)
+        Label34.Name = "Label34"
+        Label34.Size = New Size(49, 16)
+        Label34.TabIndex = 41
+        Label34.Text = "Horas"
+        ' 
+        ' hextra3
+        ' 
+        hextra3.Enabled = False
+        hextra3.Location = New Point(591, 33)
+        hextra3.Name = "hextra3"
+        hextra3.Size = New Size(49, 23)
+        hextra3.TabIndex = 40
+        hextra3.Text = "0"
+        hextra3.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' Label35
+        ' 
+        Label35.AutoSize = True
+        Label35.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label35.ForeColor = SystemColors.ControlLightLight
+        Label35.Location = New Point(4, 14)
+        Label35.Name = "Label35"
+        Label35.Size = New Size(121, 16)
+        Label35.TabIndex = 39
+        Label35.Text = "Modalidad Mixta"
+        ' 
+        ' Mixta_CB_2
+        ' 
+        Mixta_CB_2.DropDownStyle = ComboBoxStyle.DropDownList
+        Mixta_CB_2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Mixta_CB_2.FormattingEnabled = True
+        Mixta_CB_2.Items.AddRange(New Object() {"Horas Extra Mixta: Diurna - Nocturna", "Horas Extra Mixta: Nocturna - Diurna", "Fiesta Nacional o Duelo Nacional", "Hora Domingo o Descanso Semanal", "Horas Extra Diurna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales", "Horas Extra Fiesta Nacional ó Duelo Nacional Diurna", "Horas Extra Fiesta Nacional ó Duelo Nacional Nocturno", "Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna", "Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna", "Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Diurno", "Horas Extra Domingo ó Descanso Semanal Nocturno", "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno", "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno", "Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales", "Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales"})
+        Mixta_CB_2.Location = New Point(4, 33)
+        Mixta_CB_2.Name = "Mixta_CB_2"
+        Mixta_CB_2.Size = New Size(581, 24)
+        Mixta_CB_2.TabIndex = 38
+        ' 
+        ' Label36
+        ' 
+        Label36.AutoSize = True
+        Label36.Font = New Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label36.ForeColor = SystemColors.ControlLightLight
+        Label36.Location = New Point(495, 287)
+        Label36.Name = "Label36"
+        Label36.Size = New Size(162, 24)
+        Label36.TabIndex = 44
+        Label36.Text = "Modalidad Mixta"
+        ' 
+        ' M_M
+        ' 
+        M_M.AutoSize = True
+        M_M.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        M_M.ForeColor = SystemColors.ControlLightLight
+        M_M.Location = New Point(664, 291)
+        M_M.Name = "M_M"
+        M_M.Size = New Size(62, 20)
+        M_M.TabIndex = 45
+        M_M.Text = "Mixta"
+        M_M.UseVisualStyleBackColor = True
         ' 
         ' CalculoPlanilla
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(65), CByte(64), CByte(89))
-        ClientSize = New Size(1221, 708)
-        Controls.Add(Panel5)
-        Controls.Add(Panel4)
+        ClientSize = New Size(1221, 670)
         Controls.Add(M_M)
+        Controls.Add(Label36)
+        Controls.Add(Panel6)
+        Controls.Add(Panel5)
+        Controls.Add(Label26)
+        Controls.Add(Panel4)
         Controls.Add(M_N)
         Controls.Add(M_D)
         Controls.Add(Label31)
@@ -999,7 +1107,6 @@ Partial Class CalculoPlanilla
         Controls.Add(TextBox1)
         Controls.Add(Panel1)
         Controls.Add(Panel)
-        Controls.Add(Label18)
         Controls.Add(Panel3)
         FormBorderStyle = FormBorderStyle.FixedSingle
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
@@ -1017,6 +1124,8 @@ Partial Class CalculoPlanilla
         Panel4.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
+        Panel6.ResumeLayout(False)
+        Panel6.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -1065,7 +1174,7 @@ Partial Class CalculoPlanilla
     Friend WithEvents I_APELLIDO_C As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents M_M As CheckBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Button1 As Button
@@ -1106,11 +1215,19 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label31 As Label
     Friend WithEvents M_D As RadioButton
     Friend WithEvents M_N As RadioButton
-    Friend WithEvents M_M As RadioButton
     Friend WithEvents Mixta_CB As ComboBox
     Friend WithEvents rgt_btn As Button
     Friend WithEvents Label32 As Label
-    Friend WithEvents PanelButton As Button
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
+    Friend WithEvents mhextra2 As TextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents hextra2 As TextBox
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents mhextra3 As TextBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents hextra3 As TextBox
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Mixta_CB_2 As ComboBox
+    Friend WithEvents Label36 As Label
 End Class
