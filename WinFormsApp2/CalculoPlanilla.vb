@@ -500,6 +500,33 @@ Class CalculoPlanilla
         End If
     End Sub
 
+    'En la db el tipo de hora extra se guarda de acuerdo al indice de la siguiente info
+    '00 Horas 01 Extra Mixta: Diurna - Nocturna
+    '01 Horas 02 Extra Mixta: Nocturna - Diurna
+    '02 Fiesta Nacional o Duelo Nacional
+    '03 Hora Domingo o Descanso Semanal
+    '04 Horas Extra Diurna con exceso de 3 Horas diarias ó 9 Semanales
+    '05 Horas Extra Nocturna con exceso de 3 Horas diarias ó 9 Semanales
+    '06 Horas Extra Mixta: Diurna - Nocturna con exceso de 3 Horas diarias ó 9 Semanales
+    '07 Horas Extra Mixta: Nocturna - Diurna con exceso de 3 Horas diarias ó 9 Semanales
+    '08 Horas Extra Fiesta Nacional ó Duelo Nacional Diurna
+    '09 Horas Extra Fiesta Nacional ó Duelo Nacional Nocturno
+    '10 Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto: Diurna - Nocturna
+    '11 Horas Extra Fiesta Nacional ó Duelo Nacional - Mixto Nocturna - Diurna
+    '12 Horas Extra Fiesta Nacional Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    '13 Horas Extra Fiesta Nacional Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    '14 Horas Extra Fiesta Nacional Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    '15 Horas Extra Fiesta Nacional Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    '16 Horas Extra Domingo ó Descanso Semanal Diurno
+    '17 Horas Extra Domingo ó Descanso Semanal Nocturno
+    '18 Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno
+    '19 Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno
+    '20 Horas Extra Domingo ó Descanso Semanal Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    '21 Horas Extra Domingo ó Descanso Semanal Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    '22 Horas Extra Domingo ó Descanso Semanal Mixto: Diurno-Nocturno con exceso de 3 Horas Diarias ó 9 Semanales
+    '23 Horas Extra Domingo ó Descanso Semanal Mixto: Nocturno-Diurno con exceso de 3 Horas Diarias ó 9 Semanales
+    '24 Hora Extra Diurna
+    '25 Hora Extra Nocturna
     Private Sub rgt_btn_Click(sender As Object, e As EventArgs) Handles rgt_btn.Click
         ' Declara las variables para almacenar los valores de los controles
         Dim pref, tomo, asi, ced, nom1, nom2, ape1, ape2, est_c, ap_c, genero, u_a_c As String
@@ -658,8 +685,3 @@ Class CalculoPlanilla
         End If
     End Sub
 End Class
-
-'To do'
-'-mandar un msgbox para panejar excepciones e indicar si al informacion se envio x
-'-quiere una clase que maneje la conexion a la base de datos x
-'-quiero que la informacion se envie usando el form' x
