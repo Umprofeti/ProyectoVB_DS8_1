@@ -2,7 +2,10 @@
 Imports System.Reflection.Metadata
 Imports System.Text.RegularExpressions ' Importaciones de expresiones regulares
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Asn1
 Imports ProyectoDS8_1.CalculoSalario
+Imports ProyectoDS8_1.ConexionBD
 Class CalculoPlanilla
     Dim CalculoSalario As CalculoSalario = New CalculoSalario()
     Private Sub I_HT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_HT.KeyPress
@@ -339,8 +342,8 @@ Class CalculoPlanilla
     End Sub
 
     Private Sub CalculoPlanilla_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If ComboBox1.Items.Count > 0 Then
-            ComboBox1.SelectedIndex = 7   ' El primer item en el indice es 0 '
+        If I_PREF.Items.Count > 0 Then
+            I_PREF.SelectedIndex = 7   ' El primer item en el indice es 0 '
         End If
         If Estado_C_CB.Items.Count > 0 Then
             Estado_C_CB.SelectedIndex = 2   ' El primer item en el indice es 0 '
@@ -450,4 +453,56 @@ Class CalculoPlanilla
         calculo.PropHorasExtras = resultado
     End Sub
 
+    Private Sub rgt_btn_Click(sender As Object, e As EventArgs) Handles rgt_btn.Click
+        ' Declara las variables para almacenar los valores de los controles
+        Dim pref, tomo, asi, ced, nom1, nom2, ape1, ape2, est_c, ap_c As String
+
+        ' Asigna los valores de los controles a las variables
+        pref = I_PREF.Text
+        tomo = I_TOMO.Text
+        asi = I_ASIENTO.Text
+        nom1 = I_NOMBRE.Text
+        nom2 = I_NOMBRE2.Text
+        ape1 = I_APELLIDO.Text
+        ape2 = I_APELLIDO2.Text
+        est_c = Estado_C_CB.Text
+        ap_c = I_APELLIDO_C.Text
+        ' Construye la cédula utilizando la lógica que proporcionaste en I_ASIENTO_LostFocus
+        ced = pref + "-" + tomo + "-" + asi
+
+        ' Construye la consulta SQL INSERT
+        Dim consulta As String = "INSERT INTO generales (prefijo, tomo, asiento, cedula, nombre1, nombre2, apellido1, apellido2, estado_civil, apellido_casada) VALUES (@Pref, @Tomo, @Asiento, @Cedula, @Nombre1, @Nombre2, @Apellido1, @Apellido2, @estado_civil, @apellido_casada)"
+
+        Try
+            Using conn As MySqlConnection = ConexionBD.ObtenerConexion()
+                ConexionBD.AbrirConexion()
+
+                Dim command As New MySqlCommand(consulta, conn)
+
+                ' Asigna valores a los parámetros
+                command.Parameters.AddWithValue("@Pref", pref)
+                command.Parameters.AddWithValue("@Tomo", tomo)
+                command.Parameters.AddWithValue("@Asiento", asi)
+                command.Parameters.AddWithValue("@Cedula", ced)
+                command.Parameters.AddWithValue("@Nombre1", nom1)
+                command.Parameters.AddWithValue("@Nombre2", nom2)
+                command.Parameters.AddWithValue("@Apellido1", ape1)
+                command.Parameters.AddWithValue("@Apellido2", ape2)
+                command.Parameters.AddWithValue("@estado_civil", est_c)
+                command.Parameters.AddWithValue("@apellido_casada", ap_c)
+                ' Ejecuta la consulta
+                command.ExecuteNonQuery()
+
+                MessageBox.Show("Registro insertado correctamente.", "Éxito")
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error al insertar el registro: " & ex.Message, "Error")
+        End Try
+    End Sub
+
 End Class
+
+'To do'
+'-mandar un msgbox para panejar excepciones e indicar si al informacion se envio x
+'-quiere una clase que maneje la conexion a la base de datos x
+'-quiero que la informacion se envie usando el form' x

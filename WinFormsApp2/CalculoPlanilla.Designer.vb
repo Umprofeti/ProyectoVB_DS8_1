@@ -60,11 +60,11 @@ Partial Class CalculoPlanilla
         Label5 = New Label()
         Nombre = New Label()
         I_TOMO = New TextBox()
-        ComboBox1 = New ComboBox()
+        I_PREF = New ComboBox()
         Label2 = New Label()
         Label1 = New Label()
         Panel1 = New Panel()
-        Button2 = New Button()
+        rgt_btn = New Button()
         Label24 = New Label()
         O_D3 = New TextBox()
         O_D2 = New TextBox()
@@ -291,7 +291,7 @@ Partial Class CalculoPlanilla
         Panel.Controls.Add(Label5)
         Panel.Controls.Add(Nombre)
         Panel.Controls.Add(I_TOMO)
-        Panel.Controls.Add(ComboBox1)
+        Panel.Controls.Add(I_PREF)
         Panel.Controls.Add(Label2)
         Panel.Controls.Add(Label1)
         Panel.Controls.Add(Label3)
@@ -530,17 +530,17 @@ Partial Class CalculoPlanilla
         I_TOMO.Size = New Size(74, 22)
         I_TOMO.TabIndex = 2
         ' 
-        ' ComboBox1
+        ' I_PREF
         ' 
-        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
-        ComboBox1.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.ItemHeight = 16
-        ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "E", "PE"})
-        ComboBox1.Location = New Point(7, 36)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(52, 24)
-        ComboBox1.TabIndex = 1
+        I_PREF.DropDownStyle = ComboBoxStyle.DropDownList
+        I_PREF.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        I_PREF.FormattingEnabled = True
+        I_PREF.ItemHeight = 16
+        I_PREF.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "E", "PE"})
+        I_PREF.Location = New Point(7, 36)
+        I_PREF.Name = "I_PREF"
+        I_PREF.Size = New Size(52, 24)
+        I_PREF.TabIndex = 1
         ' 
         ' Label2
         ' 
@@ -567,7 +567,7 @@ Partial Class CalculoPlanilla
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(79), CByte(78), CByte(93))
-        Panel1.Controls.Add(Button2)
+        Panel1.Controls.Add(rgt_btn)
         Panel1.Controls.Add(Label24)
         Panel1.Controls.Add(O_D3)
         Panel1.Controls.Add(O_D2)
@@ -591,15 +591,15 @@ Partial Class CalculoPlanilla
         Panel1.Size = New Size(459, 157)
         Panel1.TabIndex = 7
         ' 
-        ' Button2
+        ' rgt_btn
         ' 
-        Button2.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Button2.Location = New Point(327, 110)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(112, 40)
-        Button2.TabIndex = 64
-        Button2.Text = "Registrar"
-        Button2.UseVisualStyleBackColor = True
+        rgt_btn.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        rgt_btn.Location = New Point(327, 110)
+        rgt_btn.Name = "rgt_btn"
+        rgt_btn.Size = New Size(112, 40)
+        rgt_btn.TabIndex = 64
+        rgt_btn.Text = "Registrar"
+        rgt_btn.UseVisualStyleBackColor = True
         ' 
         ' Label24
         ' 
@@ -1059,7 +1059,7 @@ Partial Class CalculoPlanilla
     Friend WithEvents Label5 As Label
     Friend WithEvents Nombre As Label
     Friend WithEvents I_TOMO As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents I_PREF As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents I_APELLIDO_C As TextBox
@@ -1108,7 +1108,7 @@ Partial Class CalculoPlanilla
     Friend WithEvents M_N As RadioButton
     Friend WithEvents M_M As RadioButton
     Friend WithEvents Mixta_CB As ComboBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents rgt_btn As Button
     Friend WithEvents Label32 As Label
     Friend WithEvents PanelButton As Button
     Friend WithEvents Panel4 As Panel
