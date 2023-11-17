@@ -639,6 +639,24 @@ Class CalculoPlanilla
             MessageBox.Show("Error al insertar el registros: " & ex.Message, "Codigo de Error: " & ex.HResult)
         End Try
     End Sub
+
+    Private Sub hextra2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles hextra2.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evitar punto decimal
+        End If
+    End Sub
+
+    Private Sub hextra3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles hextra3.KeyPress
+        ' Verificar si la tecla presionada no es un caracter
+        If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) Then
+            e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
+        ElseIf e.KeyChar = "." Then
+            e.Handled = True ' Evitar punto decimal
+        End If
+    End Sub
 End Class
 
 'To do'
