@@ -1,6 +1,9 @@
 ﻿Imports System.Reflection.Metadata
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports K4os.Hash.xxHash
 Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Tls.Crypto
+
 Class CalculoPlanilla
     Dim CalculoSalario As CalculoSalario = New CalculoSalario()
     Private Sub I_HT_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_HT.KeyPress
@@ -276,7 +279,7 @@ Class CalculoPlanilla
         If Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back AndAlso e.KeyChar <> ChrW(Keys.Delete) AndAlso e.KeyChar <> "." Then
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         End If
-        If e.KeyChar = "." AndAlso TextBox1.Text.Contains(".") Then
+        If e.KeyChar = "." AndAlso Buscar_txt.Text.Contains(".") Then
             e.Handled = True ' Evitar agregar punto decimal
         End If
 
@@ -319,18 +322,18 @@ Class CalculoPlanilla
         ValidarCaracter(sender, e)
     End Sub
 
-    Private Sub I_APELLIDO_C_KeyPress(sender As Object, e As KeyPressEventArgs) Handles I_APELLIDO_C.KeyPress
+    Private Sub I_APELLIDO_C_KeyPress(sender As Object, e As KeyPressEventArgs)
         ValidarCaracter(sender, e)
     End Sub
 
-    Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_No.CheckedChanged
+    Private Sub RB_C_No_CheckedChanged(sender As Object, e As EventArgs)
         If RB_C_No.Checked Then
             I_APELLIDO_C.Enabled = False
             I_APELLIDO_C.Clear()
         End If
     End Sub
 
-    Private Sub RB_C_Si_CheckedChanged(sender As Object, e As EventArgs) Handles RB_C_Si.CheckedChanged
+    Private Sub RB_C_Si_CheckedChanged(sender As Object, e As EventArgs)
         If RB_C_Si.Checked Then
             I_APELLIDO_C.Enabled = True
         End If
@@ -349,13 +352,13 @@ Class CalculoPlanilla
         If Mixta_CB_2.Items.Count > 0 Then
             Mixta_CB_2.SelectedIndex = 0 ' El primer item en el indice es 0 '
         End If
-        M_D.Checked = True
-        I_APELLIDO_C.Enabled = False
-        Estado_C_CB.Enabled = True ' Habilita el ComboBox de estado civil
-        Mixta_CB.Enabled = False
-        Mixta_CB_2.Enabled = False
-        RB_C_Si.Enabled = True
-        RB_C_No.Enabled = True
+        'M_D.Checked = True
+        'I_APELLIDO_C.Enabled = False
+        'Estado_C_CB.Enabled = True ' Habilita el ComboBox de estado civil
+        'Mixta_CB.Enabled = False
+        'Mixta_CB_2.Enabled = False
+        'RB_C_Si.Enabled = True
+       ' RB_C_No.Enabled = True
     End Sub
 
     Private Sub G_F_CheckedChanged(sender As Object, e As EventArgs) Handles G_F.CheckedChanged
@@ -365,6 +368,7 @@ Class CalculoPlanilla
                 I_APELLIDO_C.Enabled = False
                 I_APELLIDO_C.Clear()
             End If
+            I_APELLIDO_C.Enabled = True
             RB_C_Si.Enabled = True
             RB_C_No.Enabled = True
         End If
@@ -682,6 +686,109 @@ Class CalculoPlanilla
             e.Handled = True ' Evitar que el carácter se ingrese en el TextBox
         ElseIf e.KeyChar = "." Then
             e.Handled = True ' Evitar punto decimal
+        End If
+    End Sub
+
+    'Metodo para buscar y traer los registros de la base de datos
+    Private Sub Buscar_btn_Click(sender As Object, e As EventArgs) Handles Buscar_btn.Click
+        Dim cedulaABuscar As String = Buscar_txt.Text
+
+        ' Realiza la búsqueda en la base de datos y carga los datos en los controles si se encuentra el registro
+        If BuscarRegistro(cedulaABuscar) Then
+            ' Habilita los controles para permitir la edición
+            HabilitarControlesEdicion()
+
+            ' Guarda el ID del registro que se está editando
+            'ID_A_EDITAR = ObtenerIDRegistro(cedulaABuscar)
+        Else
+            ' Limpiar los controles si no se encuentra el registro
+            LimpiarControles()
+            MessageBox.Show("No se encontró el registro.", "Información")
+        End If
+    End Sub
+    Private Function BuscarRegistro(cedulaABuscar As String) As Boolean
+        ' Lógica para buscar el registro en la DB y cargar los datos en los controles
+        ' Retorna True si se encuentra el registro, False si no se encuentra
+        Dim consulta As String = "SELECT * FROM generales WHERE cedula = @Cedula"
+
+        Try
+            Using conn As MySqlConnection = ConexionBD.ObtenerConexion()
+                ConexionBD.AbrirConexion()
+
+                Dim command As New MySqlCommand(consulta, conn)
+                command.Parameters.AddWithValue("@Cedula", cedulaABuscar)
+
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    If reader.Read() Then
+                        ' Cargar los datos en los controles
+                        I_PREF.Text = reader("prefijo").ToString()
+                        I_TOMO.Text = reader("tomo").ToString()
+                        I_ASIENTO.Text = reader("asiento").ToString()
+                        I_NOMBRE.Text = reader("nombre1").ToString()
+                        I_NOMBRE2.Text = reader("nombre2").ToString()
+                        I_APELLIDO.Text = reader("apellido1").ToString()
+                        I_APELLIDO2.Text = reader("apellido2").ToString()
+                        I_APELLIDO_C.Text = reader("apellido_casada").ToString()
+                        ' control para llenar los radiobutton genero
+                        Dim genero As String = reader("genero").ToString()
+                        If genero = "M" Then
+                            G_M.Checked = True
+                        ElseIf genero = "F" Then
+                            G_F.Checked = True
+                        End If
+                        ' control para llenar los radiobutton de apellido casada
+                        Dim usaApellidoCasada As String = reader("usa_apellido_casada").ToString()
+                        If G_F.Checked Then ' Solo si el género es femenino
+                            If usaApellidoCasada = "1" Then
+                                RB_C_Si.Checked = True
+                            ElseIf usaApellidoCasada = "2" Then
+                                RB_C_No.Checked = True
+                            End If
+                        End If
+                        ' Horas, salario, seguros, etc.
+                        I_HT.Text = reader("htrabajadas").ToString()
+                        I_SXH.Text = reader("shora").ToString()
+                        I_SS.Text = reader("seguro_social").ToString()
+                        I_SE.Text = reader("seguro_educativo").ToString()
+                        I_ISR.Text = reader("impuesto_renta").ToString()
+                        I_HE.Text = reader("hextra1").ToString()
+                        'O_HE.Text = reader("m_extra1").ToString()
+                        ' Descuentos
+                        I_D1.Text = reader("descuento1").ToString()
+                        I_D2.Text = reader("descuento2").ToString()
+                        I_D3.Text = reader("descuento3").ToString()
+                        Return True
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error al buscar el registro: " & ex.Message, "Error")
+        End Try
+
+        Return False
+    End Function
+    Private Sub HabilitarControlesEdicion()
+        ' Habilita los controles para permitir la edición
+        ' ...
+    End Sub
+
+    Private Sub LimpiarControles()
+        ' Limpia los controles
+        ' ...
+    End Sub
+    Private Sub Buscar_txt_Enter(sender As Object, e As EventArgs) Handles Buscar_txt.Enter
+        ' Verifica si el texto actual es igual al texto predeterminado
+        If Buscar_txt.Text = "Busqueda de Empleado....Por Cédula" Then
+            ' Si es igual, borra el contenido del TextBox
+            Buscar_txt.Text = ""
+        End If
+    End Sub
+
+    Private Sub Buscar_txt_Leave(sender As Object, e As EventArgs) Handles Buscar_txt.Leave
+        ' Verifica si el TextBox está vacío
+        If String.IsNullOrWhiteSpace(Buscar_txt.Text) Then
+            ' Si está vacío, restaura el texto predeterminado
+            Buscar_txt.Text = "Busqueda de Empleado....Por Cédula"
         End If
     End Sub
 End Class
