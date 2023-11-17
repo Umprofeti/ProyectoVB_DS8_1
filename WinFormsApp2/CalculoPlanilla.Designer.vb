@@ -308,7 +308,7 @@ Partial Class CalculoPlanilla
         Estado_C_CB.DropDownStyle = ComboBoxStyle.DropDownList
         Estado_C_CB.Font = New Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
         Estado_C_CB.FormattingEnabled = True
-        Estado_C_CB.Items.AddRange(New Object() {"Casado(a)", "Divorciado(a)", "Soltero(a)", "Vuido(a)"})
+        Estado_C_CB.Items.AddRange(New Object() {"Soltero(a)", "Casado(a)", "Vuido(a)", "Divorciado(a)", ""})
         Estado_C_CB.Location = New Point(223, 198)
         Estado_C_CB.Name = "Estado_C_CB"
         Estado_C_CB.Size = New Size(121, 24)

@@ -353,13 +353,21 @@ Class CalculoPlanilla
         End If
         M_D.Checked = True
         I_APELLIDO_C.Enabled = False
-        Estado_C_CB.Enabled = False
+        Estado_C_CB.Enabled = True ' Habilita el ComboBox de estado civil
         Mixta_CB.Enabled = False
+        RB_C_Si.Enabled = True
+        RB_C_No.Enabled = True
     End Sub
 
     Private Sub G_F_CheckedChanged(sender As Object, e As EventArgs) Handles G_F.CheckedChanged
         If G_F.Checked Then
             Estado_C_CB.Enabled = True
+            If RB_C_No.Checked Then
+                I_APELLIDO_C.Enabled = False
+                I_APELLIDO_C.Clear()
+            End If
+            RB_C_Si.Enabled = True
+            RB_C_No.Enabled = True
         End If
     End Sub
 
@@ -369,6 +377,7 @@ Class CalculoPlanilla
             RB_C_Si.Enabled = False
             RB_C_No.Enabled = False
             I_APELLIDO_C.Enabled = False
+            I_APELLIDO_C.Clear()
         End If
     End Sub
 
@@ -455,7 +464,8 @@ Class CalculoPlanilla
 
     Private Sub rgt_btn_Click(sender As Object, e As EventArgs) Handles rgt_btn.Click
         ' Declara las variables para almacenar los valores de los controles
-        Dim pref, tomo, asi, ced, nom1, nom2, ape1, ape2, est_c, ap_c As String
+        Dim pref, tomo, asi, ced, nom1, nom2, ape1, ape2, est_c, ap_c, genero, u_a_c As String
+        Dim htrab, sxh, s_soc, s_edu, imp_r, h_extra, desc1, desc2, desc3 As String
 
         ' Asigna los valores de los controles a las variables
         pref = I_PREF.Text
@@ -465,13 +475,66 @@ Class CalculoPlanilla
         nom2 = I_NOMBRE2.Text
         ape1 = I_APELLIDO.Text
         ape2 = I_APELLIDO2.Text
-        est_c = Estado_C_CB.Text
         ap_c = I_APELLIDO_C.Text
+
+        ' Horas, salario, seguros, etc.
+        htrab = I_HT.Text
+        sxh = I_SXH.Text
+        s_soc = I_SS.Text
+        s_edu = I_SE.Text
+        imp_r = I_ISR.Text
+        h_extra = O_HE.Text
+
+        ' Descuentos
+        desc1 = O_D1.Text
+        desc2 = O_D2.Text
+        desc3 = O_D3.Text
+
+        ' Maneja la selección del estado civil
+        If Estado_C_CB.SelectedIndex <> -1 Then
+            ' Agrega 1 al índice para que coincida con tus valores numéricos (1-Soltero, 2-Casado, 3-Viudo, 4-Divorciado)
+            est_c = (Estado_C_CB.SelectedIndex + 1).ToString()
+        Else
+            ' Maneja el caso en que no se haya seleccionado ningún estado civil
+            MessageBox.Show("Selecciona una opción de estado civil.", "Advertencia")
+            Return
+        End If
+
+        ' Maneja la selección del género
+        If G_M.Checked Then
+            genero = "M"
+        ElseIf G_F.Checked Then
+            genero = "F"
+        Else
+            ' Maneja el caso en que ningún RadioButton está seleccionado
+            MessageBox.Show("Selecciona una opción de género.", "Advertencia")
+            Return
+        End If
+
+        ' Maneja la selección del uso del apellido casada
+        If G_F.Checked Then ' Verifica si el género es femenino
+            If RB_C_Si.Checked Then
+                u_a_c = "1" ' Sí usar apellido casada
+            ElseIf RB_C_No.Checked Then
+                u_a_c = "2" ' No usar apellido casada
+            Else
+                ' Maneja el caso en que ningún RadioButton está seleccionado
+                MessageBox.Show("Selecciona una opción para el uso del apellido casada.", "Advertencia")
+                Return
+            End If
+        Else
+            ' Si el género es masculino, establece el valor predeterminado para "No usar apellido casada"
+            u_a_c = "2"
+            ' Desmarca el RadioButton de "No usar apellido casada" si está seleccionado
+            RB_C_No.Checked = False
+        End If
+
         ' Construye la cédula utilizando la lógica que proporcionaste en I_ASIENTO_LostFocus
         ced = pref + "-" + tomo + "-" + asi
 
         ' Construye la consulta SQL INSERT
-        Dim consulta As String = "INSERT INTO generales (prefijo, tomo, asiento, cedula, nombre1, nombre2, apellido1, apellido2, estado_civil, apellido_casada) VALUES (@Pref, @Tomo, @Asiento, @Cedula, @Nombre1, @Nombre2, @Apellido1, @Apellido2, @estado_civil, @apellido_casada)"
+        Dim consulta As String = "INSERT INTO generales (prefijo, tomo, asiento, cedula, nombre1, nombre2, apellido1, apellido2, estado_civil, apellido_casada, genero, usa_apellido_casada, htrabajadas, shora, hextra1, seguro_social, seguro_educativo, impuesto_renta, descuento1, descuento2, descuento3) 
+    VALUES (@Pref, @Tomo, @Asiento, @Cedula, @Nombre1, @Nombre2, @Apellido1, @Apellido2, @estado_civil, @apellido_casada, @genero, @usa_apellido_casada, @htrabajadas, @shora, @hextra1, @seguro_social, @seguro_educativo, @impuesto_renta, @descuento1, @descuento2, @descuento3)"
 
         Try
             Using conn As MySqlConnection = ConexionBD.ObtenerConexion()
@@ -490,16 +553,27 @@ Class CalculoPlanilla
                 command.Parameters.AddWithValue("@Apellido2", ape2)
                 command.Parameters.AddWithValue("@estado_civil", est_c)
                 command.Parameters.AddWithValue("@apellido_casada", ap_c)
+                command.Parameters.AddWithValue("@genero", genero)
+                command.Parameters.AddWithValue("@usa_apellido_casada", u_a_c)
+                command.Parameters.AddWithValue("@htrabajadas", htrab)
+                command.Parameters.AddWithValue("@shora", sxh)
+                command.Parameters.AddWithValue("@hextra1", h_extra)
+                command.Parameters.AddWithValue("@seguro_social", s_soc)
+                command.Parameters.AddWithValue("@seguro_educativo", s_edu)
+                command.Parameters.AddWithValue("@impuesto_renta", imp_r)
+                command.Parameters.AddWithValue("@descuento1", desc1)
+                command.Parameters.AddWithValue("@descuento2", desc2)
+                command.Parameters.AddWithValue("@descuento3", desc3)
+
                 ' Ejecuta la consulta
                 command.ExecuteNonQuery()
 
-                MessageBox.Show("Registro insertado correctamente.", "Éxito")
+                MessageBox.Show("Registros insertados correctamente.", "Éxito!")
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error al insertar el registro: " & ex.Message, "Error")
+            MessageBox.Show("Error al insertar el registros: " & ex.Message, "Error")
         End Try
     End Sub
-
 End Class
 
 'To do'
